@@ -1,4 +1,9 @@
 FormApp::Application.routes.draw do
+  
+  get "root/login"
+  get "root/logout"
+  get "root/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
