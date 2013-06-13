@@ -1,13 +1,6 @@
 <% provide(:title, 'Login') %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>BCC Form App | <%= yield(:title) %></title>
-  </head>
-  <body>
-    <h1>Login</h1>
-    <p>
-      Please Login:
-    </p>
-  </body>
-</html>
+<h1>Login</h1>
+<p>
+  Please Login:
+</p>
+

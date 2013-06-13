@@ -9,9 +9,14 @@ describe "Root" do
       page.should have_selector('h1', :text => 'Login')
     end
 
-    it "should have the title 'Login'" do
+    it "should have the base title" do
       visit '/root/login'
-      page.should have_selector('title', :text => "BCC Form App | Login")
+      page.should have_selector('title', :text => "BCC Form App")
+    end
+
+    it "should not have a custom page title" do
+      visit '/root/login'
+      page.should_not have_selector('title', :text => '| Login')
     end
   end
 
