@@ -1,0 +1,13 @@
+<% provide(:title, 'Logout') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BCC Form App | <%= yield(:title) %> </title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <p>
+      You have sucessfully logged out!
+    </p>
+  </body>
+</html>
