@@ -1,6 +1,9 @@
-<% provide(:title, 'Login') %>
-<h1>Login</h1>
-<p>
-  Please Login:
-</p>
+<div class="center hero-unit">
+  <h1>Login</h1>
+  <h2>
+    Please Login:
+    <br>or you can</br>
+  </h2>
+ <%= link_to "Create Account!", '#', class: "btn btn-large btn-primary" %>
+</div>
 

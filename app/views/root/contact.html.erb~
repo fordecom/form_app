@@ -1,0 +1,16 @@
+<% provide(:title, 'Contact') %>
+<h1>Contact</h1>
+<p>
+  If you would like to get in contact with us.
+</p>
+<h2>
+  <br>email: matthew@formapp.ie</br>
+  <br>phone: 0857067486</br>
+  <br>Snail mail:</br>
+  <br>  Springfield,</br>
+  <br>  Meath Road,</br>
+  <br>  Bray,</br>
+  <br>  Co.Wicklow,</br>
+  <br>  Ireland</br>
+</h2>
+
