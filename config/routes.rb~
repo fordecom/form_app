@@ -1,9 +1,9 @@
 FormApp::Application.routes.draw do
-  get "users/new"
-
-  get "root/login"
+  resources :users
 
   root to: 'root#login'
+
+  match '/signup',  to: 'users#new'
 
   match '/logout', to: 'root#logout'
   match '/index', to: 'root#index'
