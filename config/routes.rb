@@ -1,9 +1,18 @@
 FormApp::Application.routes.draw do
-  resources :users
+  resources :documents
 
-  root to: 'root#login'
+
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  root to: 'sessions#new'
+
+  match '/section', to: 'sections#index'
+  match '/section/submit', to: 'sections#submit'
 
   match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/logout', to: 'root#logout'
   match '/index', to: 'root#index'

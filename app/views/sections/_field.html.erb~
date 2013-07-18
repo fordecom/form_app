@@ -1,0 +1,14 @@
+<% 
+  if @section_data.nil? || @section_data[node.xpath("@name").text].nil?
+  default_field = "" 
+  else
+  default_field = @section_data[node.xpath("@name").text]
+  end
+%>
+
+<div id="<%= node.xpath("@name").text %>">
+  <h4><%= node.text %></h4>
+<div class="well top">
+  <input type ="text" name="<%= prefix %>[<%= node.xpath("@name") %>]" value="<%= default_field %>"/>
+</div>
+</div>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<section index="2" title="tax_credits_and_reliefs">    
+    <subsection index="1" title="tax_credits" description="Certificate of Tax Credits and Rate Band">
+        <!-->**************************************************************************************************************</!-->
+        <question type="select" name="oap_or_infirmity" description="Provide a copy of your Certificate of Tax Credits and Rate Bands for 2013" default="false" question_index="1">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>
+        <!-->**************************************************************************************************************</!-->
+    </subsection>
+    
+    <subsection index="2" title="home_carers_credit" description="Home Carer’s Credit">
+        <question type="field" name="name_of_home_carer" data="text" question_index="1">Name of home carer</question>
+        <question type="field" name="home_carers_income" data="text" question_index="2">Amount of home carer's income for 2013</question>
+        <question type="field" name="no_of_dependants_cared_for" data="integer" default="0">Number of Dependants cared for</question>
+        <question type="field_group" name="cared_dependant_info">
+            <dependencies>
+                <dependency data="multiplicity" reference="no_of_dependants_cared_for" question_index="3"/>
+            </dependencies>
+            <question type="field" name="dependent_name" data="text">Name</question>
+            <question type="field" name="dependent_dob" data="date">Date of Birth</question>
+            <question type="field" name="dependent_relationship" data="text">Relationship to Taxpayer</question>
+            <question type="field" name="nature_of_incapacity" data="text">Nature of Incapacity (If Applicable)</question>
+        </question>      
+    </subsection>
+    
+    <subsection index="3" title="relative_tax_credit" description="Do you maintain at your own expense any of the following persons">
+        <question type="select" name="inc_oap_or_infirmity" description="A relative of yours or your spouse who is incapacitated by old age or 
+            infirmity from maintaining themselves?" default="false" question_index="4">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </question>
+        <question type="select" name="widowed_or_incapacitated" description="A Widowed parent or your spouse whether incapacitated or not?" default="false" question_index="5">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </question>
+        <question type="select" name="child_infirmity" description="A son or daughter who resides with you and whose services you are 
+            compelled to depend upon by reason of old age or infirmity?" default="false" question_index="6">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </question>
+    </subsection>
+    
+    <subsection index="0" title="relativ" description="Only answer the following if you have answered yes in the previous section">
+        <question type="field" name="name_of_dependant" data="text">Name of dependant relative</question>
+        <question type="field" name="income_of_dependant" data="text">Amount of dependant relative's income iin 2013 €</question>
+    </subsection>
+    
+    <subsection index="4" title="specialized_parent" dscription="Please indicate if you consider any of the following credits may apply to you">
+        <question type="select" name="children" description="Do you have any children?" default="false" question_index="7">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </question>
+        <question type="field_group" name="parent_info">
+            <dependencies>
+                <dependency data="hide" reference="children" value="true"/>
+            </dependencies>
+            <question type="select" name="one_parent" description="One-Parent Family Credit" default="false" question_index="8">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </question>
+            <question type="select" name="widowed_parent" description="Widowed Parent Credit" default="false" question_index="9">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </question>
+            <question type="select" name="incapacitated" description="Incapacitated Child Credit" default="false" question_index="10">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </question>
+            
+            <question type="field" name="no_of_children" data="integer" default="0">Number of Children</question>
+            <question type="field_group" name="child_info">
+                <dependencies>
+                    <dependency data="multiplicity" reference="no_of_children" />
+                </dependencies>
+                <question type="field" name="childs_name" data="text">Child's Name</question>
+                <question type="field" name="education_or_incapacity" data="text">Name of school/college if receiving full-time education Or  nature of permanent incapacity</question>
+            </question>
+        </question>
+    </subsection>
+    
+    <subsection index="5" title="health_expenses" description="Health Expenses">
+        <!-->**************************************************************************************************************</!-->
+        <question type="select" name="medical_expenses_info" description="Provide details including receipts of medical expenses and/or non routine dental (This must be accompanied by a Form Med 2) or ophthalmic expenses incurred in 2012 in respect of yourself,
+            your family or other dependents." default="false" question_index="4">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>
+        
+        <question type="select" name="medical_reimbursed_info" description="Provide details of amounts reimbursed by VHI/Aviva/Laya, 
+            the Regional Health Authority or other body (please specify)." default="false" question_index="4">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>
+        <!-->**************************************************************************************************************</!-->
+    </subsection>
+    
+    <subsection index="6" title="specialized_employed_person_allowance" description="Employed Person Taking Care of an Incapacitated Individual Allowance">
+        <question type="select" name="carer_employment" description="Did you employ a carer to look after an incapacitated family relative in 2012?" default="false" question_index="11">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+         </question>
+         <question type="field_group" name="carer_employment_info">
+             <dependencies>
+                 <dependency data="hide" reference="carer_employment" value="true" description="If you answered yes, confirm the following"/>
+             </dependencies>
+             <question type="field" name="expense_bourne" data="text" question_index="12">The expense actually borne by you in 2012 €</question>
+             <question type="field" name="employment_cost" data="text" question_index="13">The total cost of employing the carer for 2012 €</question>
+             <question type="field" name="relative_became_incapacitated" data="text" question_index="14">If the relative became incapacitated during the year, what date did he/she become incapacitated</question>
+         </question>
+    </subsection>
+    
+    <subsection index="7" title="permanent_health_insurance" description="Permanent Health Insurance">
+        <!-->**************************************************************************************************************</!-->
+        <question type="select" name="permanent_helth_ins_info" description="Provide details of Permanent Health Insurance payments paid by you 
+            in 2012 which have not already been relieved through your payroll." default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>
+        <!-->**************************************************************************************************************</!-->
+    </subsection>
+    
+    <subsection index="8" title="tuition_fees" description="Tuition (Education) Fees">
+        <question type="select" name="tuition_fees" description="Did you pay tuition fees on your own behalf or on behalf of a 
+            dependant to an approved college or school in 2012 or for training courses?
+            (Please note that registration fees do not qualify for tax relief 
+            and qualifying fees are subject to restriction)" default="false" question_index="15">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+            <question type="field" name="no_of_dependants_tuition" data="integer" default="0">Number of dependants you payed tuition fees for</question>
+            <question type="field_group" name="child_info">
+                <dependencies>
+                    <dependency data="multiplicity" reference="no_of_dependants_tuition" />
+                </dependencies>
+                <question type="field" name="fees_dependant_name" type="textbox">Name of person attending the course</question>
+                <question type="field" name="college_or_school_name" type="textbox">Name of school/college</question>
+                <question type="field" name="course_name" data="text">Name of course</question>
+                <question type="field" name="part_or_full" data="text">Part or full time</question>
+                <question type="field" name="amount_paid" data="text">Amount paid</question>
+            </question>
+        </question>
+    </subsection>
+    
+    <subsection index="9" title="donations" description="Donations to Approved Bodies">
+        <!-->**************************************************************************************************************</!-->
+        <question type="select" name="donations_info" description="Provide details of donations of €250 or more to approved bodies in 2012 (e.g. eligible charities, educational institutions, 
+            approved sports bodies etc.)" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>
+        <!-->**************************************************************************************************************</!-->
+    </subsection>
+    
+    <subsection index="10" title="bin_charges" description="Bin charges">
+        <!-->**************************************************************************************************************</!-->
+        <question type="select" name="bin_charges_info" description="Paid either by an annual fixed service charges to a local 
+            Authority or under a tag system." default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>
+        <!-->**************************************************************************************************************</!-->
+    </subsection>
+    
+    <subsection index="11" title="tax_based_investments" description="Tax Based Investments">
+        <!-->**************************************************************************************************************</!-->
+        <question type="select" name="tax_ba_info" description="Provide details of any Tax Based Investments which you made during the 2012 tax year, e.g. Employment and Investment Incentive Scheme,            
+            Seed Capital, Film Relief Scheme etc. Provide any documentation you received from the vendor/promoter
+            outlining the tax reliefs attaching to the investment." default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>
+        <!-->**************************************************************************************************************</!-->
+    </subsection>
+    
+    <subsection index="12" title="rents_paid" description="The Rent Tax Credit applies to individuals who were renting a property 
+            on 7 December 2010. No credit is due to individuals who began renting 
+            after 7 December 2010.
+            
+            If you were renting a property on 7 December 2010, provide details of the
+            following in respect of your main residency in 2012">
+        <question type="field" name="landlord_name" data="text" question_index="16">Name of landlord</question>
+        <question type="field" name="landlord_address" data="text" question_index="17">Address of landlord</question>
+        <question type="field" name="landlord_pps" data="text" question_index="18">PPS number of lanndlord if available</question>
+        <question type="field" name="frequency_of_payments" data="text" question_index="19">Frequency of rental payments</question>
+        <question type="field" name="amount_of_rental_payed" data="text" question_index="20">Amount of rental payments</question>
+    </subsection>
+    
+    <subsection index="13" title="other_reliefs" description="Other Allowances and Reliefs ">
+        <!-->**************************************************************************************************************</!-->
+        <question type="select" name="other_reliefs_info" description="Provide details of any other credits, allowances or reliefs which you 
+            consider may be applicable to your circumstances." default="false" question_index="20">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>
+        <!-->**************************************************************************************************************</!-->
+    </subsection>
+    
+    <subsection index="14" title="high_income_earner" description="If you are entitled to tax relief of €80,000 or more in respect of one or more reliefs, 
+        please indicate the applicable relief and provide us with details so that we may establish if the High Income Earner Restriction applies:">
+        <!-->**************************************************************************************************************</!-->
+        <question type="select" name="employ_invest_info" description="Employment and Investment Incentive Scheme relief" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>
+        
+        <question type="select" name="bes_relief_info" description="BES relief" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question> 
+        
+        <question type="select" name="film_relief_info" description="Film relief" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>   
+        
+        <question type="select" name="sport_donations_info" description="Donations to certain sports bodies" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>   
+        
+        <question type="select" name="charity_donations_info" description="Donations to approved bodies such as charities" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>     
+        
+        <question type="select" name="tax_incentive_schemes_info" description="Area specific capital allowances tax incentive schemes" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>  
+        
+        <question type="select" name="acc_allowances_info" description="Properties qualifying for accelerated allowances" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>  
+        
+        <question type="select" name="double_rent_relief_info" description="Trading losses derived from capital allowances listed under the definition of 
+            specified relief or derived from double rent relief" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>   
+        
+        <question type="select" name="shares_in_comp_info" description="Interest deductions for money borrowed by individuals to purchase shares 
+            in certain companies or partnerships" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question> 
+        
+        <question type="select" name="exempt_income_info" description="Exempt distributions and exempt profits or gains related to income from 
+            the occupation of woodlands" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>  
+        
+        <question type="select" name="heritage_and_gardens_info" description="Relief for restoration of Significant Heritage Buildings and Gardens" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>     
+        
+        <question type="select" name="art_earnings_info" description="Certain earnings of writers, composers and artists" default="false" question_index="16">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </question>        
+        <!-->**************************************************************************************************************</!-->
+    </subsection>
+    
+    <attached_documents>
+        <attached_document title="Provide a copy of your Certificate of Tax Credits and Rate Bands for 2013">
+            <dependencies>
+                <dependency reference="oap_or_infirmity" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Provide details including receipts of medical expenses and/or non routine dental (This must be accompanied by a Form Med 2) or ophthalmic expenses incurred in 2012 in respect of yourself,
+            your family or other dependents.">
+            <dependencies>
+                <dependency reference="medical_expenses_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Provide details of amounts reimbursed by VHI/Aviva/Laya, 
+            the Regional Health Authority or other body (please specify). ">
+            <dependencies>
+                <dependency reference="medical_reimbursed_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Provide details of Permanent Health Insurance payments paid by you 
+            in 2012 which have not already been relieved through your payroll.">
+            <dependencies>
+                <dependency reference="permanent_helth_ins_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Provide details of donations of €250 or more to approved bodies in 2012 (e.g. eligible charities, educational institutions, 
+            approved sports bodies etc.)">
+            <dependencies>
+                <dependency reference="donations_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Paid either by an annual fixed service charges to a local 
+            Authority or under a tag system.">
+            <dependencies>
+                <dependency reference="bin_charges_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Provide details of any Tax Based Investments which you made during the 2012 tax year, e.g. Employment and Investment Incentive Scheme,            
+            Seed Capital, Film Relief Scheme etc. Provide any documentation you received from the vendor/promoter
+            outlining the tax reliefs attaching to the investment.">
+            <dependencies>
+                <dependency reference="tax_ba_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Provide details of any other credits, allowances or reliefs which you 
+            consider may be applicable to your circumstances.">
+            <dependencies>
+                <dependency reference="other_reliefs_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Employment and Investment Incentive Scheme relief">
+            <dependencies>
+                <dependency reference="employ_invest_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="BES relief">
+            <dependencies>
+                <dependency reference="bes_relief_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Film relief">
+            <dependencies>
+                <dependency reference="film_relief_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Donations to certain sports bodies">
+            <dependencies>
+                <dependency reference="sport_donations_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Donations to approved bodies such as charitiesDonations to approved bodies such as charities">
+            <dependencies>
+                <dependency reference="charity_donations_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Area specific capital allowances tax incentive schemes">
+            <dependencies>
+                <dependency reference="tax_incentive_schemes_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Properties qualifying for accelerated allowances">
+            <dependencies>
+                <dependency reference="acc_allowances_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Trading losses derived from capital allowances listed under the definition of 
+            specified relief or derived from double rent relief">
+            <dependencies>
+                <dependency reference="double_rent_relief_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Interest deductions for money borrowed by individuals to purchase shares 
+            in certain companies or partnerships">
+            <dependencies>
+                <dependency reference="shares_in_comp_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Exempt distributions and exempt profits or gains related to income from 
+            the occupation of woodlands">
+            <dependencies>
+                <dependency reference="exempt_income_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Relief for restoration of Significant Heritage Buildings and Gardens">
+            <dependencies>
+                <dependency reference="heritage_and_gardens_info" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Certain earnings of writers, composers and artists">
+            <dependencies>
+                <dependency reference="art_earnings_info" value="true"/>
+            </dependencies>
+        </attached_document>
+    </attached_documents>
+</section>
+

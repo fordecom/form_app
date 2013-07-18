@@ -1,0 +1,17 @@
+<div class="well top t" id="<%= node.xpath("@name") %>">
+  <%= node.xpath("@description").text %>
+  <input type="file" name=" <%= node.text %>" class="file_upload" name="<%= prefix %>[<%= node.xpath("@name") %>]">
+</div>
+
+
+<script>
+      $(document).ready(function(){
+        $("#<%= node.xpath("dependencies/dependency/@reference").text %> input[value!='true']").click(function(){
+        $("#<%= node.xpath("@name").text %>").hide();
+      });
+        $("#<%= node.xpath("dependencies/dependency/@reference").text %> input[value='true']").click(function(){
+        $("#<%= node.xpath("@name").text %>").show();
+        $("#attach_text").show();
+      });
+    });
+</script>

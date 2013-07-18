@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section index="4" title="annual_charges">
+    
+    <subsection index="1" title="pension_payments">
+        <!-->**************************************************************************************************************</!-->
+        <select name="p_payments" description="Did you make any pension payments in the year" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="p_payments_info" description="If yes, please answer the following">
+            <dependancies>
+                <dependancy reference="p_payments" value="true" />
+            </dependancies>
+            <select name="pp_plan" description="Do you have a Personal Pension Plan (Retirement Annuity Contributions)" question_index="9">
+                <option value="true">Yes: Self</option>
+                <option value="true">Yes: Spouse</option>
+                <option value="false">No</option>
+            </select>
+            <field_group name="pp_plan_info" description="If yes, please answer the following">
+                <dependancies>
+                    <dependancy reference="pp_plan" value="true" />
+                </dependancies>              
+                <select name="confirm_contributions" description="Confirm your contributions to a Personal Pension Plan for 2012.">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+                <select name="confirm_relief" description="Confirm if tax relief has been claimed on the above contributions in your 2011 tax return.">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+                <select name="confirm_pp_plan" description="Confirm your contributions to a Personal Pension Plan for 1 Jan to 31 Oct 2013.">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+            </field_group>
+            <select name="prsa" description="Do you have a PRSA" question_index="9">
+                <option value="true">Yes: Self</option>
+                <option value="true">Yes: Spouse</option>
+                <option value="false">No</option>
+            </select>
+            <field_group name="prsa_info" description="If yes, please answer the following">
+                <dependancies>
+                    <dependancy reference="prsa" value="true" />
+                </dependancies> 
+                <select name="contributions_to_prsa" description="Confirm your contributions to a PRSA for 2012.">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+                <select name="employer_prsa" description="Confirm contributions made by your employer to your PRSA for 2012.">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+                <select name="payroll_prsa" description="Confirm if tax relief has been claimed on any of the above contributions either in your 2011 tax return or through your payroll.">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+                <select name="contributions_to_prsa_ny" description="Confirm your contributions to a PRSA for 1 Jan to 31 Oct 2013.">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+            </field_group>
+            <select name="opcavc" description="Do you have an Occupational Pension Contributions &amp; AVC" question_index="9">
+                <option value="true">Yes: Self</option>
+                <option value="true">Yes: Spouse</option>
+                <option value="false">No</option>
+            </select>
+            <field_group name="opcavc_info" description="If yes, please answer the following">
+                <dependancies>
+                    <dependancy reference="opcavc" value="true" />
+                </dependancies>
+                <select name="contributions_to_ops" description="Confirm your contributions to an occupational pension scheme for 2012">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+                <select name="additional_voluntary" description="Confirm Additional Voluntary Contributions made by you in 2012">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+                <select name="confirm_if_any" description="Confirm if tax relief has been claimed on any of the above contributions either in your 2011 tax return or through your payroll.">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+                <select name="cyc_to_an_avc" description="Confirm your contributions to an AVC or occupational pension scheme for 1 Jan to 31 Oct 2013 for which you have not already claimed tax relief through your payroll.">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+            </field_group>
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="2" title="annuities_maintenance_deeds">
+        <!-->**************************************************************************************************************</!-->
+        <select name="amp_deeds" description="Did you pay any Annuities, Maintenance Payments, Deeds of Covenant Information" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="amp_deeds_info" description="If yes, please answer the following">
+            <dependancies>
+                <dependancy reference="amp_deeds" value="true" />
+            </dependancies>
+            <select name="t_o_payment" description="(a) Type of Payment">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="t_w_i_i_paid" description="(b) To Whom it is Paid">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="a_o_recipient" description="(c) Address of Recipient">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="g_a_paid" description="(d) Gross Amount Paid in 2012">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="r_o_r_t_payer" description="(e) Relationship of recipient to payer (if any)">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="d_o_t_deducted" description="(f) Details of tax deducted (if any)">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="3" title="other_interest_payments">
+        <!-->**************************************************************************************************************</!-->
+        <select name="oi_payments" description="Did you pay any interest (Other than mortgage interest)" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="oi_payments_info" description="If yes, please answer the following">
+            <dependancies>
+                <dependancy reference="oi_payments" value="true" />
+            </dependancies>
+            <select name="taken_out_prior" description="For loans taken out prior to 7 December 2010, certificates of interest paid in 2012 on loans applied in acquiring an interest in or lending money to an unquoted trading company.">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="loans_applied_in_a" description="Certificates of interest paid in 2012 on loans applied in acquiring an interest in or lending money to a partnership">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="original_amount_o_l" description="Original amount of loan and date the loan was taken out">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="d_o_a_c_recovered" description="Details of any capital recovered from the partnership or company not used to reduce the loan on which interest relief is claimed.">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="4" title="rents_to_non_residential_landlord">
+        <!-->**************************************************************************************************************</!-->
+        <select name="rtnr_landlord" description="Did you pay any rents to Non-Resident Landlord Information" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="rtnr_landlord_info" description="If yes, please answer the following">
+            <dependancies>
+                <dependancy reference="rtnr_landlord" value="true" />
+            </dependancies>
+            
+            <select name="r_p_t_a_non_r_l" description="Provide details of rents paid to a non-resident landlord.">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            
+            <select name="wtortt_landlord" description="Did you withhold tax on rents to the landlord and remit it to Revenue?" question_index="9">
+                <option value="true">Yes: Self</option>
+                <option value="true">Yes: Spouse</option>
+                <option value="false">No</option>
+            </select>
+            <field_group name="wtortt_landlord_info">
+                <dependancies>
+                    <dependancy reference="wtortt_landlord" value="false" />
+                </dependancies>
+                <select name="landlord_appoint" description="If no, did the Landlord appoint an agent in Ireland to collect the rent?" question_index="9">
+                    <option value="true">Yes: Self</option>
+                    <option value="true">Yes: Spouse</option>
+                    <option value="false">No</option>
+                </select>
+            </field_group>
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <attached_documents>
+        <attached_document title="Confirm your contributions to a Personal Pension Plan for 2012.">
+            <dependencies>
+                <dependency refrence="confirm_contributions" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Confirm if tax relief has been claimed on the above contributions in your 2011 tax return.">
+            <dependencies>
+                <dependency refrence="confirm_relief" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Confirm your contributions to a Personal Pension Plan for 1 Jan to 31 Oct 2013.">
+            <dependencies>
+                <dependency refrence="confirm_pp_plan" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Confirm your contributions to a PRSA for 2012.">
+            <dependencies>
+                <dependency refrence="contributions_to_prsa" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Confirm contributions made by your employer to your PRSA for 2012.">
+            <dependencies>
+                <dependency refrence="employer_prsa" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Confirm if tax relief has been claimed on any of the above contributions either in your 2011 tax return or through your payroll.">
+            <dependencies>
+                <dependency refrence="payroll_prsa" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Confirm your contributions to a PRSA for 1 Jan to 31 Oct 2013.">
+            <dependencies>
+                <dependency refrence="contributions_to_prsa_ny" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Confirm your contributions to an occupational pension scheme for 2012">
+            <dependencies>
+                <dependency refrence="contributions_to_ops" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Confirm Additional Voluntary Contributions made by you in 2012">
+            <dependencies>
+                <dependency refrence="additional_voluntary" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Confirm if tax relief has been claimed on any of the above contributions either in your 2011 tax return or through your payroll.">
+            <dependencies>
+                <dependency refrence="confirm_if_any" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Confirm your contributions to an AVC or occupational pension scheme for 1 Jan to 31 Oct 2013 for which you have not already claimed tax relief through your payroll.">
+            <dependencies>
+                <dependency refrence="cyc_to_an_avc" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="(a) Type of Payment">
+            <dependencies>
+                <dependency refrence="t_o_payment" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="(b) To Whom it is Paid">
+            <dependencies>
+                <dependency refrence="t_w_i_i_paid" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="(c) Address of Recipient">
+            <dependencies>
+                <dependency refrence="a_o_recipient" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="(d) Gross Amount Paid in 2012">
+            <dependencies>
+                <dependency refrence="g_a_paid" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="(f) Details of tax deducted (if any)">
+            <dependencies>
+                <dependency refrence="d_o_t_deducted" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="For loans taken out prior to 7 December 2010, certificates of interest paid in 2012 on loans applied in acquiring an interest in or lending money to an unquoted trading company.">
+            <dependencies>
+                <dependency refrence="taken_out_prior" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Certificates of interest paid in 2012 on loans applied in acquiring an interest in or lending money to a partnership">
+            <dependencies>
+                <dependency refrence="loans_applied_in_a" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Original amount of loan and date the loan was taken out">
+            <dependencies>
+                <dependency refrence="original_amount_o_l" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Details of any capital recovered from the partnership or company not used to reduce the loan on which interest relief is claimed.">
+            <dependencies>
+                <dependency refrence="d_o_a_c_recovered" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Provide details of rents paid to a non-resident landlord.">
+            <dependencies>
+                <dependency refrence="r_p_t_a_non_r_l" value="true"/>
+            </dependencies>
+        </attached_document>
+        
+    </attached_documents>
+    
+</section>

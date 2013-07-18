@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-->              Check question_index's!!!!              </!-->
+<section index="3" title="income_details">
+    
+    <subsection index="1" title="trading_professional">
+        <!-->**************************************************************************************************************</!-->
+        <select name="tp_income" description="Do you have Trading/Professional Income" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="tp_income_info" description="If yes please answer the following">
+            <dependancies>
+                <dependancy reference="tp_income" value="true" />
+            </dependancies>
+            
+            <select name="acc_period" description="If your business’ accounting period has changed since last year, provide details of new accounting period i.e. length, dates etc.">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <text>
+                For your accounting period which ends in the calendar 
+                year 2012, please supply the following information
+            </text>
+            <select name="sales_income" description="Details of sales/income and purchases/expenditure">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="fees_received" description="Details of any other fees or commissions received">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="bank_statements" description="Bank statements in respect of all trading/professional transactions for the accounting period">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="ffmve_acquired" description="Details of assets acquired such as fixtures, fittings, motor vehicles or equipment (including acquisition of intangible assets such as patents, trademarks, know-how etc)">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="ffmve_disposed" description="Details of assets disposed of such as fixtures, fittings, motor vehicles or equipment">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="withholding_tc" description="Withholding tax certificates (Form F45) for tax deducted at source">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="co2_emissions" description="For cars purchased or leased after  1 July 2008 , give details of the CO2 emissions category of each car using the following categories: Up to 155g/km, Between 156–190 g/km and Above 190 g/km.">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="2" title="welfare">
+        <!-->**************************************************************************************************************</!-->
+        <select name="epb_income" description="Do you have any Pensions/Employment/Benefit Income" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="epb_income_info" description="If yes please answer the following">
+            <dependancies>
+                <dependancy reference="epb_income" value="true" />
+            </dependancies>
+            
+            <select name="p60_p45" description="Form(s) P60 or P45 in respect of salary/pensions/fees received in 2013">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="swb_received" description="Social Welfare Benefits received (e.g. jobseekers benefit, disability or invalidity benefit or occupational injury benefit)">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="contributory_pension" description="Social Welfare Pensions (contributory pension)">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="termination_pp" description="Other payments received (e.g. termination payments/payments for change in work conditions/inducement payment to change jobs)">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="3" title="director">
+        <!-->**************************************************************************************************************</!-->
+        <select name="are_you_a_director" description="Are you a Diretor?" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="are_you_a_director_info" description="If yes please answer the following">
+            <dependancies>
+                <dependancy reference="are_you_a_director" value="true" />
+            </dependancies>
+            <field name="no_of_companies" type="integer" default="0">Number of companies you or your spouse are director of</field>
+            <field_group name="director_info">
+                <dependancies>
+                    <dependancy type="multiplicity" reference="no_of_companies" />
+                </dependancies>
+                <field name="self_or_spouse" type="textbox">Self / Spouse</field>
+                <field name="company_name" type="textbox">Name of Company</field>
+                <field name="date_appointed" type="date">Date Appointed</field>
+                <field name="shareholding" type="percentage">%Shareholding</field>
+            </field_group>
+            
+            <field_group name="director_p2_info">
+                <dependancies>
+                    <dependancy reference="are_you_a_director" value="true" />
+                </dependancies>
+                
+                <select name="paye_paid" description="Can you confirm that the PAYE withheld from you was paid over to Revenue by your employing company?">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+                <select name="unreimbursed_expenses" description="Provide details of unreimbursed expenses incurred by you wholly, exclusively and necessarily in the performance of your employment.">
+                    <option value="true">Information Attached</option>
+                    <option value="false">N/A</option>
+                </select>
+            </field_group>
+            <!-->**************************************************************************************************************</!-->
+            
+        </field_group>
+    </subsection>
+    
+    <subsection index="5" title="share_schemes">
+        <!-->**************************************************************************************************************</!-->
+        <select name="share_options" description="Were any Share Options granted, exercised or assigned by you in the 2012 tax year." question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="share_options_info" description="If yes the following information should be provided">
+            <dependancies>
+                <dependancy reference="share_options" value="true" />
+            </dependancies>
+            
+            <field name="no_of_shared_options_granted" type="integer" default="0">No. of Shared Options Granted</field>
+            <field_group name="shared_options_granted">
+                <dependancies>
+                    <dependancy type="multiplicity" reference="no_of_shared_options"/>
+                </dependancies>
+                <field name="og_ss" type="textbox">Self/Spouse</field>
+                <field name="og_company" type="date">Company</field>
+                <field name="og_dog" type="textbox">Date of Grant</field>
+                <field name="og_nos" type="date">Number of Shares</field>
+                <field name="og_op" type="textbox">Option Price</field>
+                <field name="og_mv" type="date">Market Value @ Date of Grant</field>
+            </field_group>
+            
+            <field name="no_of_shared_options_exercised" type="integer" default="0">No. of Shared Options Exercised/Assigned</field>
+            <field_group name="shared_options_granted">
+                <dependancies>
+                    <dependancy type="multiplicity" reference="no_of_shared_options"/>
+                </dependancies>
+                <field name="ea_ss" type="textbox">Self/Spouse</field>
+                <field name="ea_company" type="date">Company</field>
+                <field name="ea_doea" type="textbox">Date of Exercise/Assigned</field>
+                <field name="ea_nos" type="date">Number of Shares</field>
+                <field name="ea_op" type="textbox">Option Price</field>
+                <field name="ea_mv" type="date">Market Value @ Date of Grant</field>
+            </field_group>
+            
+        </field_group>
+        <field_group name="share_options_p2_info">
+            <dependancies>
+                <dependancy reference="share_options" value="true" />
+            </dependancies>          
+            <select name="g_a_ea_s_options" description="Provide us with copies of all documentation you received from your employer detailing the grant and exercise/assignment of the share options">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>           
+        </field_group>
+        
+        <select name="vesting_period" description="Were you Irish tax resident over the vesting period i.e. from the date of 
+            grant up to the date on which the option first becomes exercisable?" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="vesting_period_info">
+            <dependancies>
+                <dependancy reference="vesting_period" value="false" />
+            </dependancies>
+            <select name="previous_work_details" description="If no, please provide details of where you worked and how long you worked abroad">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>           
+        </field_group>
+        
+        <select name="form_rts01" description="Provide details of income tax paid by you if any and a copy of Form RTSO1 returned within 30 days of exercising your share option">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select> 
+        <select name="previous_work_details" description="Provide details of free shares, shares in lieu of salary, Revenue approved share schemes, Employee Share Ownership Trusts, Approved Profit Share Schemes, Save As You Earn, Restricted Stock Unit, Share Subscription Schemes or any other share entitlements acquired by you in 2012 and copies of documentation issued by your employer">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select>   
+        
+        <field name="no_of_other_share_schemes" type="integer" default="0">No. of other Share Schemes</field>
+        <field_group name="shared_options_granted">
+            <dependancies>
+                <dependancy type="multiplicity" reference="no_of_other_share_schemes"/>
+            </dependancies>
+            <field name="oss_ss" type="textbox">Self/Spouse</field>
+            <field name="oss_company" type="date">Company</field>
+            <field name="oss_moa" type="textbox">Method of Acquisition</field>
+            <field name="oss_doa" type="date">Date of Acquisition</field>
+            <field name="oss_nosr" type="textbox">No. of Shares Received</field>
+            <field name="oss_mv" type="date">Market Value @ Date of Acquisition</field>
+        </field_group>
+        
+        <select name="convertable_securities" description="Were any convertible shares granted to you by virtue of your 
+            employment or directorship are converted in 2013" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="convertable_securitiese_info" description="If yes please provide the following information">
+            <dependancies>
+                <dependancy reference="convertable_securities" value="true" />
+            </dependancies>
+            
+            <select name="consideration_paid" description="Consideration paid for conversion of employment related shares">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>  
+            <select name="value_o_t_employment" description="The value of the employment related shares at date of conversion ignoring conversion rights">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>  
+            <select name="market_value" description="Market value of converted employment related shares">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>  
+            <select name="paye_details_cs" description="Details of PAYE if any paid for the convertible shares">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>  
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>        
+    </subsection>
+    
+    <subsection index="6" title="benefits_in_kind" description="Most benefits in kind are taxed at source by your employer through the PAYE system. If your employer has not taxed your benefits in kind at source please provide the following details:">
+        <!-->**************************************************************************************************************</!-->
+        <select name="company_car" description="Company car – provide details of its original market value, annual mileage, costs reimbursed to employer">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select>        
+        <select name="company_van" description="Company van used for private purposes – provide details of original market value, annual mileage, costs reimbursed to employer">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select>                 
+        <select name="reduced_rental" description="Free or reduced rental accommodation – confirm the open market rent of the accommodation, the market value of the property, expenses connected with the house borne by the employer and not reimbursed by you and details of any rent paid by you">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select>   
+        <select name="preferential_load" description="Preferential loan – provide details of the sum borrowed, what was the purpose of the loan, the rate of interest if any applied by your employer, details of repayments over the tax year 2012">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select> 
+        <select name="private_health_insurance" description="Private health insurance (VHI/Aviva/Laya) – provide details of the gross subscription paid by your employer">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select>        
+        <select name="club_subscriptions" description="Club subscriptions – provide detail of payments made by employer and any costs reimbursed by you">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select>         
+        <select name="tax_payments" description="Tax payments – provide details of any tax paid by your employer on your behalf">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select>        
+        <select name="employer_contribution" description="Employer contribution to a PRSA – provide details of how much was paid by employer">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select>        
+        <select name="benefits_received" description="Benefits received from your employer in lieu of salary – provide details of salary sacrifice and benefit received in lieu">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select>         
+        <select name="other_benefits" description="Any other benefits received from your employer for which PAYE was not operated on">
+            <option value="true">Information Attached</option>
+            <option value="false">N/A</option>
+        </select> 
+        <!-->**************************************************************************************************************</!-->
+    </subsection>
+    
+    <subsection index="7" title="irish_rental_income">
+        <!-->**************************************************************************************************************</!-->
+        <select name="ir_income" description="Do you have Irish Rental Income" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="ir_income_info" description="If yes please answer the following">
+            <dependancies>
+                <dependancy reference="ir_income" value="true" />
+            </dependancies>
+            
+            <select name="rental_property_acquired" description="Provide the address of each rental property owned by you if acquired in 2013 or if you have not provided us with this information previously">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="letting_date_commenced" description="Confirm the date each letting commenced and provide us with a copy of the written lease agreement if you have not provided us with this information previously">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="r_i_receivable" description="Provide details of rental income receivable by you in the tax year 2013 for each letting">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="expenditure_incurred" description="Provide details of expenditure incurred by you in respect of your rental properties (e.g. mortgage interest, rates, maintenance, repairs etc)">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="private_residential_tenancies" description="Provide written confirmation of the registration of a tenancy from the Private Residential Tenancies Board for each tenancy of residential property">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="fff_purchased" description="Provide details including receipts for expenditure on furniture, fixtures and fittings etc purchased by you for the rental property in 2013">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>  
+    </subsection>
+    
+    <subsection index="8" title="divedends">
+        <!-->**************************************************************************************************************</!-->
+        <select name="dividends_received" description="Did you receive any Dividends" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="dividends_received_info">
+            <dependancies>
+                <dependancy reference="dividends_received" value="true" />
+            </dependancies>
+            
+            <select name="dividend_counterfoils" description="If yes, please provide dividend counterfoils in respect of all Irish, dividends received in 2013">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>  
+    </subsection>
+    
+    <subsection index="9" title="deposit_interest">
+        <!-->**************************************************************************************************************</!-->
+        <select name="d_interest" description="Did you receive any Irish Deposit Interest" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="d_interest_info">
+            <dependancies>
+                <dependancy reference="d_interest" value="true" />
+            </dependancies>
+            
+            <select name="certificates_of_interest" description="If yes, please provide certificates of interest for each deposit account held during the year">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="10" title="any_of_the_following">
+        <!-->**************************************************************************************************************</!-->
+        <select name="aot_following" description="Did you receive any of the following" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="aot_following_info" description="If yes, please provide documentation in respect of the following income received in 2013">
+            <dependancies>
+                <dependancy reference="aot_following" value="true" />
+            </dependancies>
+            
+            <select name="exchequer_bills" description="Exchequer Bills">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="government_loan_stock" description="Government loan stock">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="credit_union_dividends" description="Credit Union Dividends">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="other_l_a_i" description="Income from other loans and investments">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="11" title="exempt_income">
+        <!-->**************************************************************************************************************</!-->
+        <select name="exmpt_income" description="Did you receive any Exempt Income" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="exmpt_income_info" description="If yes, please provide documentation in respect of the following income received in 2013">
+            <dependancies>
+                <dependancy reference="exmpt_income" value="true" />
+            </dependancies>
+            
+            <select name="artist_exemption" description="Profits on income for which you have been granted Artist Exemption">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="rent_a_room" description="Income received under Rent-a-Room Relief Scheme">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="childcare_services" description="Income from the provision of Childcare Services and evidence that the appropriate notification was given to the Health Service Executive">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            <select name="gains_or_distributions" description="Profits, gains or distributions from woodlands">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select> 
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="12" title="settlement_trust_ect">
+        <!-->**************************************************************************************************************</!-->
+        <select name="stcma_income" description="Did you receive Income from a Settlement, Trust, Covenant or 
+            Maintenance  Agreement" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="stcma_income_info" description="If yes, please provide documentation in respect of the following income received in 2013">
+            <dependancies>
+                <dependancy reference="stcma_income" value="true" />
+            </dependancies>
+            
+            <select name="maintenance_agreement" description="Income received by you under a maintenance agreement">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="deed_of_covenant" description="Income received by you under a deed of covenant">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="from_a_ts_o_e" description="Income received by you from a trust, settlement or estate">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="r185" description="Withholding tax certificate (R185) in respect of tax withheld on any of the above payments received by you">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="13" title="uk_income">
+        <!-->**************************************************************************************************************</!-->
+        <select name="income_uk" description="Did you receive any UK Income(Employments, Dividends, Pensions, Rents etc.)" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="income_uk_info" description="If yes, please provide documentation/details of the following">
+            <dependancies>
+                <dependancy reference="income_uk" value="true" />
+            </dependancies>
+            
+            <select name="p60_p45_uk" description="Forms P60/P45 for Great Britain/Northern Ireland employments or pensions">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="income_and_expenditure_uk" description="Details of rental income and expenditure arising on rental property located in the UK">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="uk_royalties" description="Details of UK royalties, annuities, or other income">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="uk_trading" description="Details of UK trading income and expenditure">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="counterfoils_uk" description="Copies of any dividend counterfoils received in 2013">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="certificates_of_interest_uk" description="Copies of certificates of interest for each UK deposit account held during the year">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="uk_tax_return" description="Copy of the last UK tax return submitted by you">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>           
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+        
+        <field name="nod_in_uk" type="integer">Confirm the number of days you spent in the UK in 2012.</field>
+        <field name="nov_to_uk" type="integer">Confirm the number of visits to the UK in 2012</field>
+        
+    </subsection>
+    
+    <subsection index="14" title="other_foreign_income">
+        <!-->**************************************************************************************************************</!-->
+        <select name="of_income" description="Did you receive any other Foreign Income (Other than UK) 
+            (Employments, Pensions, Rents etc.)" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="of_income_info" description="If yes, please provide the following documentation in respect of the tax year 2013">
+            <dependancies>
+                <dependancy reference="of_income" value="true" />
+            </dependancies>
+            
+            <select name="p60_p45_f" description="Forms P60/P45, or equivalent from any foreign employments or pensions">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>   
+            <select name="foreign_royalties" description="Details of foreign royalties, annuities, rental income">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>   
+            <select name="foreign_deposit" description="Certificates of all foreign deposit interest">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>   
+            <select name="foreign_dividends" description="Dividend counterfoils in respect of foreign dividends">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>   
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="15" title="foreign_financial_institution">
+        <!-->**************************************************************************************************************</!-->
+        <select name="ff_institution" description="Did you open or close an account with any foreign bank, building 
+            society or other financial institution during 2013" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="ff_institution_info" description="If yes, please advise us of the following">
+            <dependancies>
+                <dependancy reference="ff_institution" value="true" />
+            </dependancies>
+            
+            <select name="name_and_address_ff_institution" description="Name and address of the bank, building society or financial institution">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>   
+            <select name="date_ff_o_o_c" description="Date the account was opened or closed">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>   
+            <select name="intermediary_in_ireland" description="Name and address of any “intermediary” (e.g. banker) in Ireland who provided a service to assist in opening the account">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>   
+            <select name="source_of_ff_funds" description="If an account was opened during the year, please advise of the source of funds placed on deposit and the amount deposited in the account (in Euro)">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>   
+            <select name="ff_funds_were_utilised" description="If an account was closed please advise us how the funds were subsequently utilised or invested">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>   
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="16" title="offshore_funds">
+        <!-->**************************************************************************************************************</!-->
+        <select name="off_funds" description="Do you hold any Offshore Funds and Foreign Life Policies (Other than in the UK)" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="off_funds_info" description="If yes, please advise us of the following">
+            <dependancies>
+                <dependancy reference="off_funds" value="true" />
+            </dependancies>
+            
+            <select name="offshore_fund" description="Acquired an interest in an offshore fund">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="foreign_life_policy" description="Took out a foreign life policy">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="foreign_life_policy_payments" description="Received payments from either an offshore fund or a foreign life policy">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+        
+        <attached_documents>
+            <attached_document title="If your business’ accounting period has changed since last year, provide details of new accounting period i.e. length, dates etc.s">
+                <dependencies>
+                    <dependency refrence="acc_period" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Details of sales/income and purchases/expenditure">
+                <dependencies>
+                    <dependency refrence="sales_income" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Details of any other fees or commissions received">
+                <dependencies>
+                    <dependency refrence="fees_received" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Bank statements in respect of all trading/professional transactions for the accounting period">
+                <dependencies>
+                    <dependency refrence="bank_statements" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Details of assets acquired such as fixtures, fittings, motor vehicles or equipment (including acquisition of intangible assets such as patents, trademarks, know-how etc)">
+                <dependencies>
+                    <dependency refrence="ffmve_acquired" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Details of assets disposed of such as fixtures, fittings, motor vehicles or equipment">
+                <dependencies>
+                    <dependency refrence="ffmve_disposed" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Withholding tax certificates (Form F45) for tax deducted at source">
+                <dependencies>
+                    <dependency refrence="withholding_tc" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="For cars purchased or leased after  1 July 2008 , give details of the CO2 emissions category of each car using the following categories: Up to 155g/km, Between 156–190 g/km and Above 190 g/km.">
+                <dependencies>
+                    <dependency refrence="co2_emissions" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Form(s) P60 or P45 in respect of salary/pensions/fees received in 2013">
+                <dependencies>
+                    <dependency refrence="p60_p45" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Social Welfare Benefits received (e.g. jobseekers benefit, disability or invalidity benefit or occupational injury benefit)">
+                <dependencies>
+                    <dependency refrence="swb_received" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Social Welfare Pensions (contributory pension)">
+                <dependencies>
+                    <dependency refrence="contributory_pension" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Other payments received (e.g. termination payments/payments for change in work conditions/inducement payment to change jobs)">
+                <dependencies>
+                    <dependency refrence="termination_pp" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Can you confirm that the PAYE withheld from you was paid over to Revenue by your employing company?">
+                <dependencies>
+                    <dependency refrence="paye_paid" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Provide details of unreimbursed expenses incurred by you wholly, exclusively and necessarily in the performance of your employment.">
+                <dependencies>
+                    <dependency refrence="unreimbursed_expenses" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Provide details of unreimbursed expenses incurred by you wholly, exclusively and necessarily in the performance of your employment.">
+                <dependencies>
+                    <dependency refrence="unreimbursed_expenses" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Provide us with copies of all documentation you received from your employer detailing the grant and exercise/assignment of the share options">
+                <dependencies>
+                    <dependency refrence="g_a_ea_s_options" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="If no, please provide details of where you worked and how long you worked abroad">
+                <dependencies>
+                    <dependency refrence="previous_work_details" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Provide details of income tax paid by you if any and a copy of Form RTSO1 returned within 30 days of exercising your share option">
+                <dependencies>
+                    <dependency refrence="form_rts01" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Provide details of free shares, shares in lieu of salary, Revenue approved share schemes, Employee Share Ownership Trusts, Approved Profit Share Schemes, Save As You Earn, Restricted Stock Unit, Share Subscription Schemes or any other share entitlements acquired by you in 2012 and copies of documentation issued by your employer">
+                <dependencies>
+                    <dependency refrence="previous_work_details" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Consideration paid for conversion of employment related shares">
+                <dependencies>
+                    <dependency refrence="consideration_paid" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="The value of the employment related shares at date of conversion ignoring conversion rights">
+                <dependencies>
+                    <dependency refrence="value_o_t_employment" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Market value of converted employment related shares">
+                <dependencies>
+                    <dependency refrence="market_value" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Details of PAYE if any paid for the convertible shares">
+                <dependencies>
+                    <dependency refrence="paye_details_cs" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Company car – provide details of its original market value, annual mileage, costs reimbursed to employer">
+                <dependencies>
+                    <dependency refrence="company_car" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Company van used for private purposes – provide details of original market value, annual mileage, costs reimbursed to employer">
+                <dependencies>
+                    <dependency refrence="company_van" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Free or reduced rental accommodation – confirm the open market rent of the accommodation, the market value of the property, expenses connected with the house borne by the employer and not reimbursed by you and details of any rent paid by you">
+                <dependencies>
+                    <dependency refrence="reduced_rental" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Preferential loan – provide details of the sum borrowed, what was the purpose of the loan, the rate of interest if any applied by your employer, details of repayments over the tax year 2012">
+                <dependencies>
+                    <dependency refrence="preferential_load" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Private health insurance (VHI/Aviva/Laya) – provide details of the gross subscription paid by your employer">
+                <dependencies>
+                    <dependency refrence="private_health_insurance" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Club subscriptions – provide detail of payments made by employer and any costs reimbursed by you">
+                <dependencies>
+                    <dependency refrence="club_subscriptions" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Tax payments – provide details of any tax paid by your employer on your behalf">
+                <dependencies>
+                    <dependency refrence="tax_payments" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Employer contribution to a PRSA – provide details of how much was paid by employer">
+                <dependencies>
+                    <dependency refrence="employer_contribution" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Benefits received from your employer in lieu of salary – provide details of salary sacrifice and benefit received in lieu">
+                <dependencies>
+                    <dependency refrence="benefits_received" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Any other benefits received from your employer for which PAYE was not operated on">
+                <dependencies>
+                    <dependency refrence="other_benefits" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Provide the address of each rental property owned by you if acquired in 2013 or if you have not provided us with this information previously">
+                <dependencies>
+                    <dependency refrence="rental_property_acquired" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Confirm the date each letting commenced and provide us with a copy of the written lease agreement if you have not provided us with this information previously">
+                <dependencies>
+                    <dependency refrence="letting_date_commenced" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Provide details of rental income receivable by you in the tax year 2013 for each letting">
+                <dependencies>
+                    <dependency refrence="r_i_receivable" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Provide details of expenditure incurred by you in respect of your rental properties (e.g. mortgage interest, rates, maintenance, repairs etc)">
+                <dependencies>
+                    <dependency refrence="expenditure_incurred" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Provide written confirmation of the registration of a tenancy from the Private Residential Tenancies Board for each tenancy of residential property">
+                <dependencies>
+                    <dependency refrence="private_residential_tenancies" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Provide details including receipts for expenditure on furniture, fixtures and fittings etc purchased by you for the rental property in 2013">
+                <dependencies>
+                    <dependency refrence="fff_purchased" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="If yes, please provide dividend counterfoils in respect of all Irish, dividends received in 2013">
+                <dependencies>
+                    <dependency refrence="dividend_counterfoils" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="If yes, please provide certificates of interest for each deposit account held during the year">
+                <dependencies>
+                    <dependency refrence="certificates_of_interest" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Exchequer Bills">
+                <dependencies>
+                    <dependency refrence="exchequer_bills" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Government loan stock">
+                <dependencies>
+                    <dependency refrence="government_loan_stock" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Credit Union Dividends">
+                <dependencies>
+                    <dependency refrence="credit_union_dividends" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Income from other loans and investments">
+                <dependencies>
+                    <dependency refrence="other_l_a_i" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Profits on income for which you have been granted Artist Exemption">
+                <dependencies>
+                    <dependency refrence="artist_exemption" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Income received under Rent-a-Room Relief Scheme">
+                <dependencies>
+                    <dependency refrence="rent_a_room" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Income from the provision of Childcare Services and evidence that the appropriate notification was given to the Health Service Executive">
+                <dependencies>
+                    <dependency refrence="childcare_services" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Profits, gains or distributions from woodlands">
+                <dependencies>
+                    <dependency refrence="gains_or_distributions" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Income received by you under a maintenance agreement">
+                <dependencies>
+                    <dependency refrence="maintenance_agreement" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Income received by you under a deed of covenant">
+                <dependencies>
+                    <dependency refrence="deed_of_covenant" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Income received by you from a trust, settlement or estate">
+                <dependencies>
+                    <dependency refrence="from_a_ts_o_e" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Withholding tax certificate (R185) in respect of tax withheld on any of the above payments received by you">
+                <dependencies>
+                    <dependency refrence="r185" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Did you receive any UK Income(Employments, Dividends, Pensions, Rents etc.)">
+                <dependencies>
+                    <dependency refrence="p60_p45_uk" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Details of rental income and expenditure arising on rental property located in the UK">
+                <dependencies>
+                    <dependency refrence="income_and_expenditure_uk" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Details of UK royalties, annuities, or other income">
+                <dependencies>
+                    <dependency refrence="uk_royalties" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Details of UK trading income and expenditure">
+                <dependencies>
+                    <dependency refrence="uk_trading" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Copies of any dividend counterfoils received in 2013">
+                <dependencies>
+                    <dependency refrence="counterfoils_uk" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Copies of certificates of interest for each UK deposit account held during the year">
+                <dependencies>
+                    <dependency refrence="certificates_of_interest_uk" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Copy of the last UK tax return submitted by you">
+                <dependencies>
+                    <dependency refrence="uk_tax_return" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Forms P60/P45, or equivalent from any foreign employments or pensions">
+                <dependencies>
+                    <dependency refrence="p60_p45_f" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Details of foreign royalties, annuities, rental income">
+                <dependencies>
+                    <dependency refrence="foreign_royalties" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Certificates of all foreign deposit interest">
+                <dependencies>
+                    <dependency refrence="foreign_deposit" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Dividend counterfoils in respect of foreign dividends">
+                <dependencies>
+                    <dependency refrence="foreign_dividends" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Name and address of the bank, building society or financial institution">
+                <dependencies>
+                    <dependency refrence="name_and_address_ff_institution" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Date the account was opened or closed">
+                <dependencies>
+                    <dependency refrence="date_ff_o_o_c" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Name and address of any “intermediary” (e.g. banker) in Ireland who provided a service to assist in opening the account">
+                <dependencies>
+                    <dependency refrence="intermediary_in_ireland" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="If an account was opened during the year, please advise of the source of funds placed on deposit and the amount deposited in the account (in Euro)">
+                <dependencies>
+                    <dependency refrence="source_of_ff_funds" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="If an account was closed please advise us how the funds were subsequently utilised or invested">
+                <dependencies>
+                    <dependency refrence="ff_funds_were_utilised" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Acquired an interest in an offshore fund">
+                <dependencies>
+                    <dependency refrence="offshore_fund" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Took out a foreign life policy">
+                <dependencies>
+                    <dependency refrence="foreign_life_policy" value="true"/>
+                </dependencies>
+            </attached_document>
+            <attached_document title="Received payments from either an offshore fund or a foreign life policy">
+                <dependencies>
+                    <dependency refrence="foreign_life_policy_payments" value="true"/>
+                </dependencies>
+            </attached_document>
+            
+        </attached_documents>
+    </subsection>
+    
+</section>

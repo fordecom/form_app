@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section index="1" title="personal_details">
+    <subsection index="1" title="info" description="Please provide the following personal details so that we may ensure that our files are up to date:">
+        <question type="field" name="name" data="text"  question_index="1">Name</question>
+        <question type="field" name="date_of_birth" data="date" question_index="2">Date of Birth</question>
+        <question type="field" name="pps_no" data="text"  question_index="3">PPS No</question>
+        <question type="field" name="address_l1" data="text" question_index="4">Address Line 1</question>
+        <question type="field" name="address_l2" data="text" question_index="4">Address Line 2</question>
+        <question type="field" name="address_city" data="text" question_index="4">City/Town</question>
+        <question type="field" name="address_county" data="text"  question_index="4">County</question>
+        <question type="field" name="email_address" data="text"  question_index="5">Email Address</question>
+    </subsection>
+    
+    <subsection index="2" title="phone_numbers" description="Phone No.’s">
+        <question type="field" name="business" data="text"  question_index="6">Business</question>
+        <question type="field" name="home" data="text"  question_index="7"> Home</question>
+        <question type="field" name="mobile" data="text"  question_index="8">Mobile</question>
+        <question type="field" name="fax" data="text"  question_index="9">Fax</question>
+    </subsection>
+    
+    <subsection index="3" title="if_applicable" description="Throughout this checklist, spouse refers to a husband and wife and civil partner.If Applicable:">
+        <question type="field" name="spouse_name" data="text"  question_index="10">Spouse Name</question>
+        <question type="field" name="spouse_mainden_name" data="text" question_index="11" >Spouse Mainden Name</question>
+        <question type="field" name="spouse_date_of_birth" data="date"  question_index="12">Spouse Date of Birth</question>
+        <question type="field" name="spouse_pps_number" data="text"  question_index="13">Spouse PPS Number</question>
+    </subsection>
+    
+    <subsection index="4" title="Dependents" description=" ">
+        <question type="field" name="no_of_dependants" data="integer" default="0"  question_index="14">No. of Dependants</question>
+        <question type="field_group" name="dependant_info">
+            <dependencies>
+                <dependency data="multiplicity" reference="no_of_dependants" />
+            </dependencies>
+            <question type="field" name="dependant_name" data="text"  question_index="15">Name</question>
+            <question type="field" name="dependant_date_of_birth" data="date" question_index="16">Date of Birth</question>
+        </question type="field_group">
+    </subsection>
+    
+    <subsection index="5" title="Status" description="Status:">
+        <question type="select" name="single" description="Single" default="false" question_index="17">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </question>
+          
+        <question type="select" name="married" description="Married" default="false" question_index="18">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </question>        
+        <question type="field_group" name="marriage_info">
+            <dependencies>
+                <dependency data="hide" reference="married" value="true"/>
+            </dependencies>
+            <question type="field" name="date_of_marriage" data="date" question_index="19">Date of Marriage</question>
+            <question type="select" name="tax_q1" description="Are you and your spouse jointly assessed for tax purposes?
+                (either spouse may be taxed on the joint income of both spouses)" default="false" question_index="26">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </question>
+            
+            <question type="select" name="tax_q2" description="Are you and your spouse separately assessed for tax purposes?
+                (each spouse is assessed independently of the other, but
+                unused tax credits &amp; balance of standard rate band where available
+                may be transferred between spouses after the end of the tax year)" default="false" question_index="27">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </question>
+            
+            <question type="select" name="tax_q3" description="Are you and your spouse assessed as single persons for tax purposes?
+                (each spouse is assessed as if he or she is a single person)" default="false" question_index="28">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </question>
+        </question type="field_group">
+        
+        <question type="select" name="widowed" description="Widowed" default="false" question_index="20">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+         </question>
+         <question type="field_group" name="widow_info">
+            <dependencies>
+                <dependency data="hide" reference="widowed" value="true"/>
+            </dependencies>
+            <question type="field" name="date_you_were_widowed" data="date" question_index="21">Date you were Widowed</question>
+         </question type="field_group">
+        
+        
+        <question type="select" name="divorced" description="Divorced" default="false" question_index="22">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </question>
+        <question type="field_group" name="divorce_info">
+          <dependencies>
+              <dependency data="hide" reference="divorced" value="true"/>
+          </dependencies>
+          <question type="field" name="date_of_divorce" data="date"  question_index="23">Date of Divorce</question>
+        </question type="field_group">
+        
+        
+        <question type="select" name="married_but_living_apart" description="Married but living apart" default="false" question_index="24">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </question>
+            <question type="field_group" name="living_apart_info">
+                <dependencies>
+                    <dependency data="hide" reference="married_but_living_apart" value="true"/>
+                </dependencies>
+                <question type="field" name="date_of_separation" data="date"  question_index="25">Date of Separation</question>
+            </question type="field_group">    
+    </subsection>
+    
+    
+    <subsection index="8" title="Bank Details" description="Please advise us of the bank account you wish payment to be taken from. Written authorisation from you will be required before payment is made">
+        <question type="field" name="bank_account_name" data="text"  question_index="31">Name on Bank Account</question>
+        <question type="field" name="bank_account_number" data="text"  question_index="32">Bank Accont Number</question>
+        <question type="field" name="sort_code" data="text"  question_index="33">Sort Code</question>
+        <question type="field" name="bank_name" data="text"  question_index="34">Name of Bank</question>
+        <question type="field" name="bank_address" data="text"  question_index="35">Address of Bank</question>
+    </subsection>
+</section>
+

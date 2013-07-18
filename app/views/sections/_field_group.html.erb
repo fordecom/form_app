@@ -1,0 +1,101 @@
+<% case question.xpath("dependencies/dependency/@data").text %>
+  <% when "hide" %> 
+    <script>
+      $(document).ready(function(){
+        $("#<%= question.xpath("dependencies/dependency/@reference").text %> input[value!='true']").click(function(){
+        $("div#<%= question.xpath("@name").text %>").hide();
+      });
+        $("#<%= question.xpath("dependencies/dependency/@reference").text %> input[value='true']").click(function(){
+        $("div#<%= question.xpath("@name").text %>").show();
+      });
+    });
+    </script> 
+
+    <div id="<%= question.xpath("@name").text %>" class="well">
+    <% question.xpath("question").each do |q| %>
+
+      <% case q.xpath("@type").text %>
+      <%   when "field_group" %>
+      <%= render :partial => "field_group", :locals => {:question => q, :prefix => prefix} %>
+      <% when "select" %>
+      <%= render :partial => "select", :locals => {:node => q, :prefix => prefix} %>
+      <% when "field" %>
+        <% case q.xpath("@data").text %> 
+          <% when "date" %>
+            <%= render :partial => "date", :locals => {:node => q, :prefix => prefix} %>
+          <% when "text" %>
+            <%= render :partial => "field", :locals => {:node => q, :prefix => prefix} %>
+          <% when "integer" %>
+            <%= render :partial => "number", :locals => {:node => q, :prefix => prefix} %>
+        <% end %>
+      <% end %>    
+    <% end %>
+   </div>
+
+
+ <% when "multiplicity"%>
+   <% prefix << "[#{question.xpath("@name").text}][]"%>
+   <script>
+     $(function(){
+       var array = []; 
+       $("#<%= question.xpath("@name").text %>").hide()
+       $("#<%= question.xpath("dependencies/dependency/@reference")%>").change(function(){
+         console.log("Clicked");
+         var num = Number($("#<%= question.xpath("dependencies/dependency/@reference")%>").val());
+         if(num < 0){
+           num = 0;
+         }
+         if(num > 25){
+           num = 25;
+         }
+
+         if (array.length < num){
+           var diff = array.length
+           for (var i = 0; i < (num - diff); i++){ 
+             var element = $("#<%= question.xpath("@name").text %>").clone().show();
+             element.attr("id","")
+             array.push(element);
+             $("#<%= question.xpath("@name").text %>_container").append(element);
+           }
+         }else if(array.length > num){
+             var less = array.length
+             for (var j = 0; j < (less - num); j++){
+               var element = array.pop();
+               element.remove();
+            }
+          }
+          $('.input-append').datepicker()
+        });
+        <% if !@section_data.nil? %>
+        window.extra_data["<%= question.xpath("@name").text %>"] = <%= @section_data[question.xpath("@name").text].to_json.html_safe %>
+        <% end %>      
+      });
+      
+   </script>
+
+   <div id="<%= question.xpath("@name").text %>_container">
+     
+   </div>
+
+   <div id="<%= question.xpath("@name").text %>" class="well">
+    <% question.xpath("question").each do |q| %>
+
+      <% case q.xpath("@type").text %>
+      <%   when "field_group" %>
+      <%= render :partial => "field_group", :locals => {:question => q, :prefix => prefix} %>    
+      <% when "select" %>
+      <%= render :partial => "select", :locals => {:node => q, :prefix => prefix} %>
+      <% when "field" %>
+        <% case q.xpath("@data").text %> 
+          <% when "date" %>
+            <%= render :partial => "date", :locals => {:node => q, :prefix => prefix} %>
+          <% when "text" %>
+            <%= render :partial => "field", :locals => {:node => q, :prefix => prefix} %>
+          <% when "integer" %>
+            <%= render :partial => "number", :locals => {:node => q, :prefix => prefix} %>
+        <% end %>
+      <% end %>    
+    <% end %>
+   </div>
+<% end %>
+

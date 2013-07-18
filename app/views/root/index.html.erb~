@@ -1,11 +1,11 @@
-<% provide(:title, 'Login') %>
-<h1>Login</h1>
+<% provide(:title, 'Index') %>
+<h1>Index</h1>
 <p>
   <br>Please select the section you wish to edit.</br>
-  <br><a href="root/section_a">Section A</a></br>
-  <br><a href="root/section_b">Section B</a></br>
-  <br><a href="root/section_c">Section C</a></br>   
-  <br><a href="root/section_d">Section D</a></br>
-  <br><a href="root/section_e">Section E</a></br>
+  <br><a href="section?section=A">Section A - PERSONAL DETAILS</a></br>
+  <br><a href="section?section=B">Section B - PERSONAL CIRCUMSTANCES AND CLAIM FOR TAX CREDITS/RELIEFS</a></br>
+  <br><a href="section?section=C">Section C</a></br>   
+  <br><a href="section?section=D">Section D</a></br>
+  <br><a href="section?section=E">Section E</a></br>
 </p>
 

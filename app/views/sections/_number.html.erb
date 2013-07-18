@@ -1,0 +1,14 @@
+<% 
+  if @section_data.nil? || @section_data[node.xpath("@name").text].nil?
+  default_number = "" 
+  else
+  default_number = @section_data[node.xpath("@name").text]
+  end
+%>
+
+<div>           
+    <h4><%= node.text %></h4>  
+    <div class="well top">          
+    <input class="number_box" type="number" id="<%= node.xpath("@name") %>" min="0" step="1" data-bind="value:replyNumber" name="<%= prefix %>[<%= node.xpath("@name") %>]" value="<%= default_number %>" />
+</div>
+</div>

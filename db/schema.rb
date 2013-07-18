@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614123720) do
+ActiveRecord::Schema.define(:version => 20130718143611) do
+
+  create_table "client_data", :force => true do |t|
+    t.string   "section"
+    t.text     "data"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "client_data", ["user_id"], :name => "index_client_data_on_user_id"
+
+  create_table "documents", :force => true do |t|
+    t.string   "filename"
+    t.string   "doc_name"
+    t.string   "original_filename"
+    t.integer  "users_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "documents", ["users_id"], :name => "index_documents_on_users_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -21,8 +42,10 @@ ActiveRecord::Schema.define(:version => 20130614123720) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
+    t.string   "remember_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

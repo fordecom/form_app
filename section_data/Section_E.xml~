@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section index="5" title="capital_section">
+    
+    <subsection index="1" title="dispose_of_assets">
+        <!-->**************************************************************************************************************</!-->
+        <select name="d_o_assets" description="Did you dispose of any Assets in 2013" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="d_o_assets_info" description="If yes, please provide details of disposals made for consideration or 
+            otherwise of any assets such as property, land, quoted / unquoted shares, 
+            antiques, artwork etc. during 2012 (1 January 2012 to 31 December 2012). These details should include">
+            <dependancies>
+                <dependancy reference="d_o_assets" value="true" />
+            </dependancies>
+            
+            <select name="type_of_asset" description="Type of asset">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="date_of_purchase" description="Date of purchase">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="pp_and_ac" description="Purchase price and associated costs">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="date_of_sale_doc" description="Date of sale (date of contract)">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="pos_and_ac" description="Proceeds of sale and associated costs">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="details_of_cgt" description="Details of CGT paid in respect of asset disposals in 2012 if not already provided.">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="2" title="process_of_disposing">
+        <!-->**************************************************************************************************************</!-->
+        <select name="p_o_disposing" description="Have you, are you in the process of or are you considering disposing of any Assets in 2014" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="p_o_disposing_info">
+            <dependancies>
+                <dependancy reference="p_o_disposing" value="true" />
+            </dependancies>
+            
+            <select name="asset_disposals" description="If yes, please provide us with details as outlined above for asset disposals on or after 1 January 2013 so that we can advise you of the tax due and the relevant payment date.">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="3" title="aquire_any_assets">
+        <!-->**************************************************************************************************************</!-->
+        <select name="a_a_assets" description="Did you acquire any assets in 2013" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="a_a_assets_info" description="If yes, please provide us with the following information">
+            <dependancies>
+                <dependancy reference="a_a_assets" value="true" />
+            </dependancies>
+            
+            <select name="t_o_a_asset" description="Type of asset">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="d_o_a_purchase" description="Date of purchase">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="a_pp_and_ac" description="Purchase price and associated costs">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <subsection index="4" title="gift_or_inheritance">
+        <!-->**************************************************************************************************************</!-->
+        <select name="g_o_i" description="Did you receive a gift or inheritance in 2013" question_index="9">
+            <option value="true">Yes: Self</option>
+            <option value="true">Yes: Spouse</option>
+            <option value="false">No</option>
+        </select>
+        <field_group name="g_o_i_info" description="If yes, please provide us with the following information">
+            <dependancies>
+                <dependancy reference="g_o_i" value="true" />
+            </dependancies>
+            
+            <select name="tvotgoi" description="The value of the gift or inheritance">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="tdotgoi" description="The date of the gift or inheritance">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="yrwtd" description="Your relationship with the donor (i.e. spouse, child, sibling etc.)">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+            <select name="doatpotgi" description="Details of any tax paid on the gift/inheritance">
+                <option value="true">Information Attached</option>
+                <option value="false">N/A</option>
+            </select>
+
+            <!-->**************************************************************************************************************</!-->
+        </field_group>
+    </subsection>
+    
+    <attached_documents>
+        <attached_document title="Type of asset">
+            <dependencies>
+                <dependency refrence="type_of_asset" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Date of purchase">
+            <dependencies>
+                <dependency refrence="date_of_purchase" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Purchase price and associated costs">
+            <dependencies>
+                <dependency refrence="pp_and_ac" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Date of sale (date of contract)">
+            <dependencies>
+                <dependency refrence="date_of_sale_doc" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Proceeds of sale and associated costs">
+            <dependencies>
+                <dependency refrence="pos_and_ac" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Details of CGT paid in respect of asset disposals in 2012 if not already provided.">
+            <dependencies>
+                <dependency refrence="details_of_cgt" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="If yes, please provide us with details as outlined above for asset disposals on or after 1 January 2013 so that we can advise you of the tax due and the relevant payment date.">
+            <dependencies>
+                <dependency refrence="asset_disposals" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Type of asset">
+            <dependencies>
+                <dependency refrence="t_o_a_asset" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Date of purchase">
+            <dependencies>
+                <dependency refrence="d_o_a_purchase" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Purchase price and associated costs">
+            <dependencies>
+                <dependency refrence="a_pp_and_ac" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="The value of the gift or inheritance">
+            <dependencies>
+                <dependency refrence="tvotgoi" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="The date of the gift or inheritance">
+            <dependencies>
+                <dependency refrence="tdotgoi" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Your relationship with the donor (i.e. spouse, child, sibling etc.)">
+            <dependencies>
+                <dependency refrence="yrwtd" value="true"/>
+            </dependencies>
+        </attached_document>
+        <attached_document title="Details of any tax paid on the gift/inheritance">
+            <dependencies>
+                <dependency refrence="doatpotgi" value="true"/>
+            </dependencies>
+        </attached_document>
+        
+    </attached_documents>
+</section>

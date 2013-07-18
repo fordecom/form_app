@@ -1,0 +1,75 @@
+<script>
+  window.extra_data = {}
+</script>
+
+<form action="/section/submit" method="post" enctype="multipart/form-data">
+<%= token_tag nil %>
+<input type="hidden" name="section" value="<%= @section_id %>">
+<% @doc.xpath("/section/subsection").each do |subsection| %>
+<div class="well light">
+  <h2><%= subsection.xpath("@description").text %></h2>
+  <% subsection.xpath("question").each do |question| %>
+  
+  <% case question.xpath("@type").text %>
+    <% when "field" %>
+    <% case question.xpath("@data").text %>
+      <% when "date" %>
+        <%= render :partial => "date", :locals => {:node => question, :prefix => "answers"} %>
+      <% when "text" %>
+        <%= render :partial => "field", :locals => {:node => question, :prefix => "answers"} %>
+      <% when "integer" %>
+        <%= render :partial => "number", :locals => {:node => question, :prefix => "answers"} %>
+    <% end %>
+   
+    <% when "select" %>
+    <%= render :partial => "select", :locals => {:node => question, :prefix => "answers"} %>
+
+  
+  <%   when "field_group" %>
+  <%= render :partial => "field_group", :locals => {:question => question, :prefix => "answers"} %>
+
+  <% end %>
+ <% end %>
+</div>
+<% end %>
+<div class="well light">
+
+<h2 id="attach_text" style="display: none">Please attach the following documents:</h2>
+<% @doc.xpath("/section/attached_documents/attached_document").each do |attached| %>
+  <%= render :partial => "attached_document", :locals => {:node => attached, :prefix => "files"} %>
+<% end %>
+</div>
+</br>
+<button class="btn">Submit</button>
+</form>
+
+<script>
+$(document).ready(function(){
+  $("[type='radio'][checked]").click();
+  $("input").change();
+  
+  for(var field_group_name in extra_data){
+    var container_id = "#" + field_group_name + "_container"
+    var data = extra_data[field_group_name]
+    $(container_id).children().each(function(index){
+      for(var field in data[index]){
+        var input = $(this).find("#" + field + " input")
+        console.log(input.attr("type"))
+        if (input.attr("type") === "radio"){
+          if (input.val() === data[index][field]){
+            
+            input.click(); 
+          }
+        }else{
+          input.val(data[index][field]);
+        }   
+      }
+    });
+  }
+});
+</script>
+
+<script>
+
+  $('.input-append').datepicker()
+</script>

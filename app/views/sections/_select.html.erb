@@ -1,0 +1,33 @@
+<% 
+  if @section_data.nil? || @section_data[node.xpath("@name").text].nil?
+  default_select = node.xpath("@default").text 
+  else
+  default_select = @section_data[node.xpath("@name").text]
+  end
+%>
+
+      <div id="<%= node.xpath("@name").text %>">
+      <h4><%= node.xpath("@description").text %></h4>
+        <div class="well top">
+        <fieldset>
+          <div class="form_rows">
+            <% node.xpath("option").each do |option| %>
+
+            <% id_name = node.xpath("@name") %>
+            
+      
+            <% option_value = option.xpath("@value").text %>
+            <%
+
+              if default_select != option_value
+                checked = "" 
+              else
+                checked = "checked"
+              end
+            %>
+            <input type="radio" id="<%= id_name.text %>" name="<%= prefix %>[<%= id_name %>]" <%= checked %> value="<%= option_value %>" ><%= option.text%></input>
+            <% end %>
+          </div>
+        </fieldset>
+       </div>
+      </div>
