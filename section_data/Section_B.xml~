@@ -11,6 +11,13 @@
         <!-->**************************************************************************************************************</!-->
     </subsection>
     
+    <subsection>
+        <question type="select" name="lpt_requirements" description="Have you complied with your LPT requirement in relation to all properties owned" default="false" question_index="1">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </question>
+    </subsection>
+
     <subsection index="2" title="home_carers_credit" description="Home Carer’s Credit">
         <question type="field" name="name_of_home_carer" data="text" question_index="1">Name of home carer</question>
         <question type="field" name="home_carers_income" data="text" question_index="2">Amount of home carer's income for 2013</question>
@@ -134,8 +141,8 @@
                 <dependencies>
                     <dependency data="multiplicity" reference="no_of_dependants_tuition" />
                 </dependencies>
-                <question type="field" name="fees_dependant_name" type="textbox">Name of person attending the course</question>
-                <question type="field" name="college_or_school_name" type="textbox">Name of school/college</question>
+                <question type="field" name="fees_dependant_name" data="text">Name of person attending the course</question>
+                <question type="field" name="college_or_school_name" data="text">Name of school/college</question>
                 <question type="field" name="course_name" data="text">Name of course</question>
                 <question type="field" name="part_or_full" data="text">Part or full time</question>
                 <question type="field" name="amount_paid" data="text">Amount paid</question>
@@ -147,16 +154,6 @@
         <!-->**************************************************************************************************************</!-->
         <question type="select" name="donations_info" description="Provide details of donations of €250 or more to approved bodies in 2012 (e.g. eligible charities, educational institutions, 
             approved sports bodies etc.)" default="false" question_index="16">
-            <option value="true">Information Attached</option>
-            <option value="false">N/A</option>
-        </question>
-        <!-->**************************************************************************************************************</!-->
-    </subsection>
-    
-    <subsection index="10" title="bin_charges" description="Bin charges">
-        <!-->**************************************************************************************************************</!-->
-        <question type="select" name="bin_charges_info" description="Paid either by an annual fixed service charges to a local 
-            Authority or under a tag system." default="false" question_index="16">
             <option value="true">Information Attached</option>
             <option value="false">N/A</option>
         </question>
@@ -266,113 +263,126 @@
     </subsection>
     
     <attached_documents>
-        <attached_document title="Provide a copy of your Certificate of Tax Credits and Rate Bands for 2013">
+        <attached_document name="oap_or_infirmity_doc" description="Provide a copy of your Certificate of Tax Credits and Rate Bands for 2013">
+            <title>Certificate of Tax Credits and Rate Bands</title>
             <dependencies>
                 <dependency reference="oap_or_infirmity" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Provide details including receipts of medical expenses and/or non routine dental (This must be accompanied by a Form Med 2) or ophthalmic expenses incurred in 2012 in respect of yourself,
+        <attached_document name="medical_expenses_info_doc" description="Provide details including receipts of medical expenses and/or non routine dental (This must be accompanied by a Form Med 2) or ophthalmic expenses incurred in 2012 in respect of yourself,
             your family or other dependents.">
+            <title>Receipts of medical expenses and/or non routine dental</title>
             <dependencies>
                 <dependency reference="medical_expenses_info" value="true"/>
             </dependencies>
-        </attached_document>
-        <attached_document title="Provide details of amounts reimbursed by VHI/Aviva/Laya, 
+        </attached_document>      
+        <attached_document name="medical_reimbursed_info_doc" description="Provide details of amounts reimbursed by VHI/Aviva/Laya, 
             the Regional Health Authority or other body (please specify). ">
+            <title>Amounts reimbursed by VHI/Aviva/Laya, the Regional Health Authority or other body</title>
             <dependencies>
                 <dependency reference="medical_reimbursed_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Provide details of Permanent Health Insurance payments paid by you 
+        <attached_document name="permanent_helth_ins_info_doc" description="Provide details of Permanent Health Insurance payments paid by you 
             in 2012 which have not already been relieved through your payroll.">
+            <title>Details of Permanent Health Insurance payments paid by you</title>
             <dependencies>
                 <dependency reference="permanent_helth_ins_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Provide details of donations of €250 or more to approved bodies in 2012 (e.g. eligible charities, educational institutions, 
+        <attached_document name="donations_info_doc" description="Provide details of donations of €250 or more to approved bodies in 2012 (e.g. eligible charities, educational institutions, 
             approved sports bodies etc.)">
+            <title>Details of donations of €250 or more to approved bodies</title>
             <dependencies>
                 <dependency reference="donations_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Paid either by an annual fixed service charges to a local 
-            Authority or under a tag system.">
-            <dependencies>
-                <dependency reference="bin_charges_info" value="true"/>
-            </dependencies>
-        </attached_document>
-        <attached_document title="Provide details of any Tax Based Investments which you made during the 2012 tax year, e.g. Employment and Investment Incentive Scheme,            
+        <attached_document name="tax_ba_info_doc" description="Provide details of any Tax Based Investments which you made during the 2012 tax year, e.g. Employment and Investment Incentive Scheme,            
             Seed Capital, Film Relief Scheme etc. Provide any documentation you received from the vendor/promoter
             outlining the tax reliefs attaching to the investment.">
+            <title>Tax Based Investments</title>
             <dependencies>
                 <dependency reference="tax_ba_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Provide details of any other credits, allowances or reliefs which you 
+        <attached_document name="other_reliefs_info_doc" description="Provide details of any other credits, allowances or reliefs which you 
             consider may be applicable to your circumstances.">
+            <title>Any other credits, allowances or reliefs</title>
             <dependencies>
                 <dependency reference="other_reliefs_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Employment and Investment Incentive Scheme relief">
+        <attached_document name="employ_invest_info_doc" description="Employment and Investment Incentive Scheme relief">
+            <title>Employment and Investment Incentive Scheme relief</title>
             <dependencies>
                 <dependency reference="employ_invest_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="BES relief">
+        <attached_document name="bes_relief_info_doc" description="BES relief">
+            <title>BES relief</title>
             <dependencies>
                 <dependency reference="bes_relief_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Film relief">
+        <attached_document name="film_relief_info_doc" description="Film relief">
+        <title>Film relief</title>
             <dependencies>
                 <dependency reference="film_relief_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Donations to certain sports bodies">
+        <attached_document name="sport_donations_info_doc" description="Donations to certain sports bodies">
+            <title>Donations to certain sports bodies</title>
             <dependencies>
                 <dependency reference="sport_donations_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Donations to approved bodies such as charitiesDonations to approved bodies such as charities">
+        <attached_document name="charity_donations_info_doc" description="Donations to approved bodies such as charities">
+            <title>Donations to approved bodies</title>
             <dependencies>
                 <dependency reference="charity_donations_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Area specific capital allowances tax incentive schemes">
+        <attached_document name="tax_incentive_schemes_info_doc" description="Area specific capital allowances tax incentive schemes">
+            <title>Area specific capital allowances tax incentive schemes</title>
             <dependencies>
                 <dependency reference="tax_incentive_schemes_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Properties qualifying for accelerated allowances">
+        <attached_document name="acc_allowances_info_doc" description="Properties qualifying for accelerated allowances">
+            <title>Properties qualifying for accelerated allowances</title>
             <dependencies>
                 <dependency reference="acc_allowances_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Trading losses derived from capital allowances listed under the definition of 
+        <attached_document name="double_rent_relief_info_doc" description="Trading losses derived from capital allowances listed under the definition of 
             specified relief or derived from double rent relief">
+            <title>Trading losses derived from capital allowances</title>
             <dependencies>
                 <dependency reference="double_rent_relief_info" value="true"/>
             </dependencies>
-        </attached_document>
-        <attached_document title="Interest deductions for money borrowed by individuals to purchase shares 
+        </attached_document>     
+        <attached_document name="shares_in_comp_info_doc" description="Interest deductions for money borrowed by individuals to purchase shares 
             in certain companies or partnerships">
+            <title>Interest deductions for money borrowed</title>
             <dependencies>
                 <dependency reference="shares_in_comp_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Exempt distributions and exempt profits or gains related to income from 
+        <attached_document name="exempt_income_info_doc" description="Exempt distributions and exempt profits or gains related to income from 
             the occupation of woodlands">
+            <title>Gains related to income from the occupation of woodlands</title>
             <dependencies>
                 <dependency reference="exempt_income_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Relief for restoration of Significant Heritage Buildings and Gardens">
+        <attached_document name="heritage_and_gardens_info_doc" description="Relief for restoration of Significant Heritage Buildings and Gardens">
+            <title>Relief for restoration of Significant Heritage Buildings and Gardens</title>
             <dependencies>
                 <dependency reference="heritage_and_gardens_info" value="true"/>
             </dependencies>
         </attached_document>
-        <attached_document title="Certain earnings of writers, composers and artists">
+        <attached_document name="art_earnings_info_doc" description="Certain earnings of writers, composers and artists">
+            <title>Certain earnings of artists</title>
             <dependencies>
                 <dependency reference="art_earnings_info" value="true"/>
             </dependencies>

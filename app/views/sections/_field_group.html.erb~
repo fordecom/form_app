@@ -1,6 +1,5 @@
 <% case question.xpath("dependencies/dependency/@data").text %>
   <% when "hide" %> 
-  <% prefix << "[#{question.xpath("@name").text}]"%>
     <script>
       $(document).ready(function(){
         $("#<%= question.xpath("dependencies/dependency/@reference").text %> input[value!='true']").click(function(){
@@ -74,7 +73,7 @@
       
    </script>
 
-   <div id="<%= question.xpath("@name").text %>_container">
+   
      
    </div>
 

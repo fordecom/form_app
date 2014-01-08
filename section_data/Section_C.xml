@@ -48,7 +48,7 @@
             </question>
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">
+        </question>
     </subsection>
     
     <subsection index="2" title="welfare" description="Employment / Pension / Social Welfare Income">
@@ -81,7 +81,7 @@
             </question>
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">
+        </question>
     </subsection>
     
     <subsection index="3" title="director">
@@ -104,7 +104,7 @@
                 <question type="field" name="company_name" data="text">Name of Company</question>
                 <question type="field" name="date_appointed" data="date">Date Appointed</question>
                 <question type="field" name="shareholding" data="text">Shareholding</question>
-            </question type="field_group">            
+            </question>            
             <!-->**************************************************************************************************************</!-->
             <question type="select" default="false" name="paye_paid" description="Can you confirm that the PAYE withheld from you was paid over to Revenue by your employing company?">
                 <option value="true">Information Attached</option>
@@ -114,7 +114,7 @@
                 <option value="true">Information Attached</option>
                 <option value="false">N/A</option>
             </question>
-        </question type="field_group">
+        </question>
     </subsection>
     
     <subsection index="4" title="share_schemes" description="Share Schemes">
@@ -140,7 +140,7 @@
                 <question type="field" name="og_nos" data="text">Number of Shares</question>
                 <question type="field" name="og_op" data="text">Option Price</question>
                 <question type="field" name="og_mv" data="text">Market Value @ Date of Grant</question>
-              </question type="field_group">
+              </question>
             
               <question type="field" name="no_of_shared_options_exercised" data="integer" default="0">No. of Shared Options Exercised/Assigned</question>
               <question type="field_group" name="no_of_shared_options_exercised_info">
@@ -153,13 +153,13 @@
                   <question type="field" name="ea_nos" data="text">Number of Shares</question>
                   <question type="field" name="ea_op" data="text">Option Price</question>
                   <question type="field" name="ea_mv" data="text">Market Value @ Date of Grant</question>
-              </question type="field_group">
+              </question>
                
               <question type="select" default="false" name="g_a_ea_s_options" description="Provide us with copies of all documentation you received from your employer detailing the grant and exercise/assignment of the share options">
                   <option value="true">Information Attached</option>
                   <option value="false">N/A</option>
               </question>           
-        </question type="field_group"> 
+        </question> 
         
         <question type="select" default="false" name="vesting_period" description="Were you Irish tax resident over the vesting period i.e. from the date of 
             grant up to the date on which the option first becomes exercisable?" question_index="9">
@@ -175,7 +175,7 @@
                 <option value="true">Information Attached</option>
                 <option value="false">N/A</option>
             </question>           
-        </question type="field_group">
+        </question>
         
         <question type="select" default="false" name="form_rts01" description="Provide details of income tax paid by you if any and a copy of Form RTSO1 returned within 30 days of exercising your share option">
             <option value="true">Information Attached</option>
@@ -197,7 +197,7 @@
             <question type="field" name="oss_doa" data="date">Date of Acquisition</question>
             <question type="field" name="oss_nosr" data="text">No. of Shares Received</question>
             <question type="field" name="oss_mv" data="date">Market Value @ Date of Acquisition</question>
-        </question type="field_group">
+        </question>
         
         <question type="select" default="false" name="convertable_securities" description="Were any convertible shares granted to you by virtue of your 
             employment or directorship are converted in 2013" question_index="9">
@@ -228,7 +228,7 @@
             </question>  
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">        
+        </question>        
     </subsection>
     
     <subsection index="6" title="benefits_in_kind" description="Most benefits in kind are taxed at source by your employer through the PAYE system. If your employer has not taxed your benefits in kind at source please provide the following details:">
@@ -299,7 +299,20 @@
             <question type="select" default="false" name="r_i_receivable" description="Provide details of rental income receivable by you in the tax year 2013 for each letting">
                 <option value="true">Information Attached</option>
                 <option value="false">N/A</option>
+            </question>
+	    <question type="select" default="false" name="prtb" description="Where the regestration requirements of part 7 of the Residential Tenancies Act 2004 have been complied in relation to residential premises in this year please tick the box" question_index="12">
+                 <option value="true">Yes: Self</option>
+                 <option value="true">Yes: Spouse</option>
+                 <option value="false">No</option>
             </question> 
+            <question type="field_group" name="prtb_info">
+                <dependencies>
+                    <dependency data="hide" reference="prtb" value="true" />
+                </dependencies> 
+                <question type="field" name="no_of_properties_let" data="integer" default="0">Number of properties let</question>
+                <question type="field" name="no_of_hectares" data="text">Area in hectares, if applicable</question>
+		<question type="field" name="gross_rental_r" data="text">Gross Rental Receivable</question>
+            </question>
             <question type="select" default="false" name="expenditure_incurred" description="Provide details of expenditure incurred by you in respect of your rental properties (e.g. mortgage interest, rates, maintenance, repairs etc)">
                 <option value="true">Information Attached</option>
                 <option value="false">N/A</option>
@@ -314,7 +327,7 @@
             </question> 
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">  
+        </question>  
     </subsection>
     
     <subsection index="8" title="divedends" description="Other Irish Income">
@@ -335,7 +348,7 @@
             </question> 
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">  
+        </question>  
     </subsection>
     
     <subsection index="9" title="deposit_interest">
@@ -356,12 +369,12 @@
             </question> 
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">
+        </question>
     </subsection>
     
     <subsection index="10" title="any_of_the_following">
         <!-->**************************************************************************************************************</!-->
-        <question type="select" default="false" name="aot_following" description="Did you receive any of the following" question_index="9">
+        <question type="select" default="true" name="aot_following" description="Did you receive any of the following" question_index="9">
             <option value="true">Yes: Self</option>
             <option value="true">Yes: Spouse</option>
             <option value="false">No</option>
@@ -389,7 +402,7 @@
             </question> 
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">
+        </question>
     </subsection>
     
     <subsection index="11" title="exempt_income">
@@ -422,7 +435,7 @@
             </question> 
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">
+        </question>
     </subsection>
     
     <subsection index="12" title="settlement_trust_ect">
@@ -456,7 +469,7 @@
             </question>
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">
+        </question>
     </subsection>
     
     <subsection index="13" title="uk_income" description="Foreign Income">
@@ -500,7 +513,7 @@
                 <option value="false">N/A</option>
             </question>           
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">
+        </question>
         
         <question type="field" name="nod_in_uk" data="integer">Confirm the number of days you spent in the UK in 2012.</question>
         <question type="field" name="nov_to_uk" data="integer">Confirm the number of visits to the UK in 2012</question>
@@ -538,7 +551,7 @@
             </question>   
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">
+        </question>
     </subsection>
     
     <subsection index="15" title="foreign_financial_institution">
@@ -576,7 +589,7 @@
             </question>   
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">
+        </question>
     </subsection>
     
     <subsection index="16" title="offshore_funds">
@@ -605,7 +618,7 @@
             </question>
             
             <!-->**************************************************************************************************************</!-->
-        </question type="field_group">
+        </question>
         
         <attached_documents>
             <attached_document title="If your business’ accounting period has changed since last year, provide details of new accounting period i.e. length, dates etc.s">

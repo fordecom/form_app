@@ -38,6 +38,7 @@
 <% @doc.xpath("/section/attached_documents/attached_document").each do |attached| %>
   <%= render :partial => "attached_document", :locals => {:node => attached, :prefix => "files"} %>
 <% end %>
+  
 </div>
 </br>
 <button class="btn">Submit</button>

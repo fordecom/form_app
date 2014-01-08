@@ -361,6 +361,10 @@ padding: 0px;
 
 
 select, input[type="file"] {
-line-height: none;
+line-height: 0px;
+}
+
+.btn {
+  color: white;
 }
 

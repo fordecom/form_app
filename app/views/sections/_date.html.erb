@@ -2,7 +2,7 @@
   if @section_data.nil? || @section_data[node.xpath("@name").text].nil?
   default_date = "01-01-2013" 
   else
-  default_date = @section_data[node.xpath("@name").text]
+  default_date = DateTime.parse(@section_data[node.xpath("@name").text]).strftime("%d-%m-%Y")
   end
 %>
 
@@ -10,7 +10,7 @@
   <h4><%= node.text %><h4>
 <div class="well date">
 <div class="input-append date" id="<%= node.xpath("@name").text %>" data-date="<%= default_date %>" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-    <input class="span2" size="16" type="text" value="<%= default_date %>" name="<%= prefix %>[<%= node.xpath("@name") %>">
+    <input class="span2" size="16" type="text" value="<%= default_date %>" name="<%= prefix %>[<%= node.xpath("@name") %>]">
     <span class="add-on"><i class="icon-th"></i></span>
   </div>
 </div>

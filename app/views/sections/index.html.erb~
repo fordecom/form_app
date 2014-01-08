@@ -2,7 +2,7 @@
   window.extra_data = {}
 </script>
 
-<form action="/section/submit" method="post">
+<form action="/section/submit" method="post" enctype="multipart/form-data">
 <%= token_tag nil %>
 <input type="hidden" name="section" value="<%= @section_id %>">
 <% @doc.xpath("/section/subsection").each do |subsection| %>
@@ -38,6 +38,7 @@
 <% @doc.xpath("/section/attached_documents/attached_document").each do |attached| %>
   <%= render :partial => "attached_document", :locals => {:node => attached, :prefix => "files"} %>
 <% end %>
+  
 </div>
 </br>
 <button class="btn">Submit</button>

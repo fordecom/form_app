@@ -10,20 +10,29 @@ class SectionsController < ApplicationController
     end
   end 
   def submit
-    params[:files].each do |name, file|
-      directory = "uploads"
-      extension = "." + file.original_filename.split(".").last
-      rand_file_name = rand_file << extension
-      path = Rails.root.join(directory, rand_file_name)
-      File.open(path, "wb") { |f| f.write(file.read) }
-      doc = Document.new
-      doc.original_filename = file.original_filename
-      doc.doc_name = name
-      doc.filename = path.to_s
-      doc.save
-    end
+    if !params[:files].nil? 
+      params[:files].each do |name, file|
+        directory = "uploads"
+        extension = "." + file.original_filename.split(".").last
+        rand_file_name = rand_file << extension
+        path = Rails.root.join(directory, rand_file_name)
+        File.open(path, "wb") { |f| f.write(file.read) }
+        doc = Document.new
+        doc.original_filename = file.original_filename
+        doc.doc_name = name
+        doc.filename = path.to_s
+        doc.save
+      end
+      redirect_to index_path and return
+  	end
 
-    @answers = params[:answers].to_json
+		path = "section_data/Section_#{params[:section]}.xml"
+    @section_id = params[:section]
+    @doc = Nokogiri::XML(File.open(path))
+
+    @answers = validates(params[:answers], 0)
+    puts @answers
+		puts params[:answers]
     section_id = params[:section]
     c = current_user.client_data.where(:section => section_id).first
     if c.nil?
@@ -31,7 +40,7 @@ class SectionsController < ApplicationController
       current_user.client_data.push(c)
     end
     c.section = section_id
-    c.data = @answers 
+    c.data = @answers.to_json 
     c.save   
   end
   def rand_file 
@@ -48,4 +57,56 @@ class SectionsController < ApplicationController
     puts "str =" + str
     str
   end
-end
+
+	private
+		def validates(section_data, key)				
+			if(section_data.is_a? Hash)
+				ret = {}
+       	section_data.each do |hash_key, val|
+					ret[hash_key] = validates(val, hash_key)
+				end
+				ret
+			else if(section_data.is_a? Array)
+				ret = []
+        section_data.each do |val|
+					ret.push(validates(val, key))
+				end
+				ret
+			else
+				puts "key: #{key}"
+        xp_query = "//*[@name='#{key}']"
+        puts "xp_query: #{xp_query}"
+        puts @doc.class
+				node = @doc.xpath(xp_query)
+				puts node
+				puts "type #{node.xpath("@type").text}"
+				puts "data #{node.xpath("@data").text}"
+
+				case node.xpath("@type").text
+					when "field"
+					case node.xpath("@data").text
+						when "date"		
+							begin
+								DateTime.parse(section_data)
+							rescue Exception
+								return Date.current().to_s
+							end
+							return DateTime.parse(section_data).to_s
+						when "text"
+							if section_data.blank? or section_data.length>65000	
+								return ""
+							else 
+								return section_data
+							end
+						when "integer"
+							if section_data.blank?
+								return 0
+							else
+								return section_data.to_i
+							end
+						end					
+					end	
+				end
+			end
+		end
+	end

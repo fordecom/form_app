@@ -11,6 +11,13 @@
         <!-->**************************************************************************************************************</!-->
     </subsection>
     
+    <subsection>
+        <question type="select" name="lpt_requirements" description="Have you complied with your LPT requirement in relation to all properties owned" default="false" question_index="1">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </question>
+    </subsection>
+
     <subsection index="2" title="home_carers_credit" description="Home Carer’s Credit">
         <question type="field" name="name_of_home_carer" data="text" question_index="1">Name of home carer</question>
         <question type="field" name="home_carers_income" data="text" question_index="2">Amount of home carer's income for 2013</question>
@@ -134,8 +141,8 @@
                 <dependencies>
                     <dependency data="multiplicity" reference="no_of_dependants_tuition" />
                 </dependencies>
-                <question type="field" name="fees_dependant_name" type="textbox">Name of person attending the course</question>
-                <question type="field" name="college_or_school_name" type="textbox">Name of school/college</question>
+                <question type="field" name="fees_dependant_name" data="text">Name of person attending the course</question>
+                <question type="field" name="college_or_school_name" data="text">Name of school/college</question>
                 <question type="field" name="course_name" data="text">Name of course</question>
                 <question type="field" name="part_or_full" data="text">Part or full time</question>
                 <question type="field" name="amount_paid" data="text">Amount paid</question>
@@ -147,16 +154,6 @@
         <!-->**************************************************************************************************************</!-->
         <question type="select" name="donations_info" description="Provide details of donations of €250 or more to approved bodies in 2012 (e.g. eligible charities, educational institutions, 
             approved sports bodies etc.)" default="false" question_index="16">
-            <option value="true">Information Attached</option>
-            <option value="false">N/A</option>
-        </question>
-        <!-->**************************************************************************************************************</!-->
-    </subsection>
-    
-    <subsection index="10" title="bin_charges" description="Bin charges">
-        <!-->**************************************************************************************************************</!-->
-        <question type="select" name="bin_charges_info" description="Paid either by an annual fixed service charges to a local 
-            Authority or under a tag system." default="false" question_index="16">
             <option value="true">Information Attached</option>
             <option value="false">N/A</option>
         </question>
@@ -298,13 +295,6 @@
             <title>Details of donations of €250 or more to approved bodies</title>
             <dependencies>
                 <dependency reference="donations_info" value="true"/>
-            </dependencies>
-        </attached_document>
-        <attached_document name="bin_charges_info_doc" description="Paid either by an annual fixed service charges to a local 
-            Authority or under a tag system.">
-            <title>Annual fixed service charges to a local authority or under a tag system.</title>
-            <dependencies>
-                <dependency reference="bin_charges_info" value="true"/>
             </dependencies>
         </attached_document>
         <attached_document name="tax_ba_info_doc" description="Provide details of any Tax Based Investments which you made during the 2012 tax year, e.g. Employment and Investment Incentive Scheme,            
