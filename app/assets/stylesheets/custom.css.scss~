@@ -364,7 +364,22 @@ select, input[type="file"] {
 line-height: 0px;
 }
 
-.btn {
-  color: white;
+
+.users_list table{
+	width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.users_list table td{
+	width: 20%;
+}
+
+.users_list table th{
+	width: 20%;
+	text-align: left;
+	color: blue;
+}
+
+
 

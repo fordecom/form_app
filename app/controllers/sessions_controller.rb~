@@ -19,42 +19,14 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  def submit
-		section_data = params[:answers]
- 	  xml = xpath.("/section/subsection")
-		key = xml.xpath(@name)
-	  validate(section_data, xml, key)
-	end
-	
-	private
-
-  def validates(section_data, xml, key)				
-				xml_node = xml.xpath("/question")
-				if(section_data.is_a?Hash)
-					ret = {}
-        	section_data.each do |key, val|
-						ret[key] = validate(val, xml, key)
-					end
-				ret
-				else if(section_data.is_a?Array)
-					ret = []
-          section_data.each do |val|
-						ret.push(validates(val,xml,key)
-				else
-					node = xml.xpath("@name" + key)
-					case node.xpath(@type)
-						when "field"
-						case node.xpath(@data)
-							when "date"
-
-							when "text"
-
-							when "integer"
-						end
-						when "select"
-
-						when "field_group"
-					end	
+	def login_as_user
+		if current_user.account_type == "admin"
+			user = User.find(params[:user_id])
+			sign_in(user)
+			redirect_to user
+		else
+			redirect_to user
+		end
 	end
 
 end

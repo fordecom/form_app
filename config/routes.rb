@@ -14,6 +14,8 @@ FormApp::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
+	match '/users_list', to: 'root#users_list'
+	match '/login_as_user/:user_id', to: 'sessions#login_as_user'
   match '/logout', to: 'root#logout'
   match '/index', to: 'root#index'
   match '/contact', to: 'root#contact'

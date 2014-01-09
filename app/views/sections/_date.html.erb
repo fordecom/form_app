@@ -1,6 +1,6 @@
 <% 
   if @section_data.nil? || @section_data[node.xpath("@name").text].nil?
-  default_date = "01-01-2013" 
+  default_date = "01-01-2014" 
   else
   default_date = DateTime.parse(@section_data[node.xpath("@name").text]).strftime("%d-%m-%Y")
   end

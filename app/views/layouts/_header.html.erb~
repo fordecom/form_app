@@ -2,13 +2,16 @@
   <div class="navbar-inner">
     <div class="container">
 
-      <%= link_to image_tag("bcclogo.png", class: "bcc_logo_crop"), root_path, id: "logo" %>
+      <%= link_to image_tag("bcclogocrop.png", class: "bcc_logo_crop"), root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Login", root_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "Users", '#' %></li>
+						<% if current_user.account_type == "admin" %>
+           	 <li><%= link_to "Users", users_list_path %></li>
+						<% end %>
             <li><%= link_to "Index", index_path %></li>
+						
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>

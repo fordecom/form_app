@@ -1,0 +1,23 @@
+<% provide(:title, "Users") %>
+<h1>Users</h1>
+<div class="users_list">
+	<h3>
+		<table>
+				<tr>
+					<th>Name</th>
+					<th>ID</th>
+					<th>PPS</th>
+					<th>Email</th>
+				</tr>
+			<%  @client_list.each do |current_client| %>
+				<tr>
+					<td><a href="/login_as_user/<%= current_client.id %>"><%=	current_client.name + " " + current_client.surname %></a></td>
+					<td><%= current_client.id %></td>
+					<td><%= current_client.pps %></td>
+					<td><%= current_client.email %></td>
+	 			<%  puts "User_NAME= #{current_client.name + " " + current_client.surname}" %>
+			</tr>
+			<%	end	%>
+		</table>
+	</h3>
+</div>

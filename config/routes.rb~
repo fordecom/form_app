@@ -8,12 +8,13 @@ FormApp::Application.routes.draw do
   root to: 'sessions#new'
 
   match '/section', to: 'sections#index'
-  match '/section/submit', to: 'sections#index'
+  match '/section/submit', to: 'sections#submit'
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
+	match '/users_list', to: 'root#users_list'
   match '/logout', to: 'root#logout'
   match '/index', to: 'root#index'
   match '/contact', to: 'root#contact'

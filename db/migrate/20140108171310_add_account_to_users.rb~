@@ -1,0 +1,4 @@
+class AddAccountToUsers < ActiveRecord::Migration
+  def change
+  end
+end
